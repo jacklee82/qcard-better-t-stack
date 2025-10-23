@@ -29,3 +29,4 @@ export function ProgressBar({ current, total, correct }: ProgressBarProps) {
   )
 }
 
+

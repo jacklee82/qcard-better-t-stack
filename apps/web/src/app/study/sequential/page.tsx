@@ -18,7 +18,7 @@ export default function SequentialStudyPage() {
   const [correctCount, setCorrectCount] = useState(0)
 
   // 모든 문제 가져오기
-  const { data: questions, isLoading } = trpc.question.getAll.useQuery()
+  const { data: questions = [], isLoading } = trpc.question.getAll.useQuery()
 
   // 답안 제출
   const submitAnswer = trpc.progress.submit.useMutation({
@@ -42,7 +42,7 @@ export default function SequentialStudyPage() {
       return
     }
 
-    const currentQuestion = questions![currentIndex]
+    const currentQuestion = questions[currentIndex]
     submitAnswer.mutate({
       questionId: currentQuestion.id,
       selectedAnswer,
@@ -51,7 +51,7 @@ export default function SequentialStudyPage() {
   }
 
   const handleNext = () => {
-    if (currentIndex < questions!.length - 1) {
+    if (currentIndex < questions.length - 1) {
       setCurrentIndex(prev => prev + 1)
       setSelectedAnswer(null)
       setShowAnswer(false)

@@ -18,3 +18,4 @@ export const userStats = pgTable("user_stats", {
 export type UserStats = typeof userStats.$inferSelect;
 export type NewUserStats = typeof userStats.$inferInsert;
 
+

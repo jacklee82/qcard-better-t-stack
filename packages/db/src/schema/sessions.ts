@@ -18,3 +18,4 @@ export const studySessions = pgTable("study_sessions", {
 export type StudySession = typeof studySessions.$inferSelect;
 export type NewStudySession = typeof studySessions.$inferInsert;
 
+

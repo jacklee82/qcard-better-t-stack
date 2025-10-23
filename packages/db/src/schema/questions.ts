@@ -15,3 +15,4 @@ export const questions = pgTable("questions", {
 export type Question = typeof questions.$inferSelect;
 export type NewQuestion = typeof questions.$inferInsert;
 
+

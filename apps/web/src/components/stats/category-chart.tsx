@@ -77,3 +77,4 @@ export function CategoryChart({ data }: CategoryChartProps) {
   )
 }
 
+

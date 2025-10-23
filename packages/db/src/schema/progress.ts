@@ -26,3 +26,4 @@ export const userProgress = pgTable(
 export type UserProgress = typeof userProgress.$inferSelect;
 export type NewUserProgress = typeof userProgress.$inferInsert;
 
+
