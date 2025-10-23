@@ -32,6 +32,9 @@
 		"db:generate": {
 			"cache": false,
 			"persistent": true
+		},
+		"seed": {
+			"cache": false
 		}
 	}
 }
