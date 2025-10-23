@@ -6,7 +6,7 @@ import { trpc } from '@/utils/trpc'
 import { QuestionCard } from '@/components/question/question-card'
 import { ProgressBar } from '@/components/study/progress-bar'
 import { Button } from '@/components/ui/button'
-import { Loader } from '@/components/loader'
+import Loader from '@/components/loader'
 import { toast } from 'sonner'
 import { CheckCircle2, XCircle, ArrowLeft } from 'lucide-react'
 
