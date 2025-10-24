@@ -26,18 +26,34 @@ export default function TabLayout() {
 			}}
 		>
 			<Tabs.Screen
-				name="index"
+				name="dashboard"
 				options={{
-					title: "Home",
+					title: "대시보드",
 					tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
 				}}
 			/>
 			<Tabs.Screen
-				name="two"
+				name="study"
 				options={{
-					title: "Explore",
+					title: "학습",
+					tabBarIcon: ({ color }) => <TabBarIcon name="book" color={color} />,
+				}}
+			/>
+			<Tabs.Screen
+				name="stats"
+				options={{
+					title: "통계",
 					tabBarIcon: ({ color }) => (
-						<TabBarIcon name="compass" color={color} />
+						<TabBarIcon name="bar-chart" color={color} />
+					),
+				}}
+			/>
+			<Tabs.Screen
+				name="bookmarks"
+				options={{
+					title: "북마크",
+					tabBarIcon: ({ color }) => (
+						<TabBarIcon name="bookmark" color={color} />
 					),
 				}}
 			/>

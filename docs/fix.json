@@ -1,0 +1,131 @@
+[
+    {
+      "fix_id": "FIX-0001",
+      "title": "Better Auth ↔ Drizzle 스키마 연결",
+      "problem": "Better Auth 테이블(users, sessions 등)이 자동 생성되지 않음",
+      "cause": "drizzleAdapter에서 schema 옵션이 누락되어 스키마 인식 실패",
+      "solution": "drizzleAdapter(db, { provider: 'pg', schema })로 schema 명시",
+      "prevent": "Auth 어댑터 구성 시 schema 항상 명시"
+    },
+    {
+      "fix_id": "FIX-0002",
+      "title": "tRPC Context – NextRequest 타입 호환",
+      "problem": "tRPC context 타입 불일치로 Next.js API 라우트 충돌",
+      "cause": "Request 타입 직접 사용으로 헤더 타입 불일치 발생",
+      "solution": "NextRequest 타입을 import하여 createContext(req: NextRequest)로 통일",
+      "prevent": "Next.js 14+에서는 NextRequest를 표준으로 사용"
+    },
+    {
+      "fix_id": "FIX-0003",
+      "title": "API 라우터 구조 + protected ctx.session",
+      "problem": "루트 라우터만 존재, 보호 라우팅 불명확",
+      "cause": "보호 절차 미들웨어 및 컨텍스트 계약 미정립",
+      "solution": "protectedProcedure를 도입하고 ctx.session 접근 보장",
+      "prevent": "보호 라우트는 반드시 protectedProcedure 사용"
+    },
+    {
+      "fix_id": "FIX-0004",
+      "title": "DB Seed – dotenv 로드 순서",
+      "problem": "Seed 실행 시 DB 인증 실패",
+      "cause": "dotenv.config() 호출 이전에 DB 연결 시도",
+      "solution": "dotenv.config() 후 drizzle 초기화",
+      "prevent": "환경변수 의존 모듈은 dotenv 이후 초기화"
+    },
+    {
+      "fix_id": "FIX-0005",
+      "title": "React Syntax Highlighter – Prism → Light",
+      "problem": "빌드 오류: refractor/lib/all 모듈 불일치",
+      "cause": "Prism 변형이 Turbopack과 충돌",
+      "solution": "Light 버전 사용, 필요한 언어만 등록 (hljs 스타일)",
+      "prevent": "Prism 대신 Light 사용으로 빌드 안정성 확보"
+    },
+    {
+      "fix_id": "FIX-0006",
+      "title": "Loader default export/import 불일치",
+      "problem": "런타임 오류: Export Loader doesn’t exist",
+      "cause": "default export인데 named import로 불러옴",
+      "solution": "import Loader from '@/components/loader'로 수정",
+      "prevent": "default export는 항상 default import로 불러오기"
+    },
+    {
+      "fix_id": "FIX-0007",
+      "title": "tRPC Provider/Client 생성·순서 정정",
+      "problem": "contextMap[utilName] is not a function 오류 발생",
+      "cause": "Provider 중첩/순서 꼬임, 전역 클라이언트 공유로 상태 꼬임",
+      "solution": "trpc 인스턴스 분리, Provider 내부에서 queryClient 및 trpcClient 생성",
+      "prevent": "전역 단일 클라이언트 금지, Provider에서 생성하도록 구조화"
+    },
+    {
+      "fix_id": "FIX-0008",
+      "title": "Sequential Study – undefined length 가드",
+      "problem": "초기 렌더에서 questions가 undefined 상태로 length 접근",
+      "cause": "trpc.question.getAll.useQuery()의 기본값 미지정",
+      "solution": "const { data: questions = [] } = trpc.question.getAll.useQuery()",
+      "prevent": "배열 응답은 항상 기본값 [] 지정"
+    },
+    {
+      "fix_id": "FIX-0009",
+      "title": "Dashboard – lucide 아이콘 미수입",
+      "problem": "ReferenceError: Flame is not defined",
+      "cause": "lucide-react에서 Flame, Clock import 누락",
+      "solution": "import { Flame, Clock } from 'lucide-react' 추가",
+      "prevent": "PR 리뷰 시 icon import 여부 확인"
+    },
+    {
+      "fix_id": "FIX-0010",
+      "title": "SessionTimer – Date 직렬화 문자열 처리",
+      "problem": "TypeError: startTime.getTime is not a function",
+      "cause": "API 응답의 Date가 string으로 직렬화되어 전달됨",
+      "solution": "toStartMs() 함수로 Date|string|number 대응, Date.parse 처리 추가",
+      "prevent": "superjson transformer 설정 or 유니온 타입으로 허용, 브라우저에서 실제 타입 확인"
+    },
+    {
+      "fix_id": "FIX-0012",
+      "title": "Native 차트 라이브러리 플랫폼 분기",
+      "problem": "Recharts는 Web 전용으로 React Native에서 작동하지 않음",
+      "cause": "Recharts가 DOM 기반 SVG 렌더링을 사용하여 Native 환경 미지원",
+      "solution": "react-native-chart-kit + react-native-svg 사용, 동일한 props 인터페이스 유지",
+      "prevent": "차트 컴포넌트는 플랫폼별로 분리 구현 (Web: Recharts, Native: react-native-chart-kit)"
+    },
+    {
+      "fix_id": "FIX-0013",
+      "title": "Native 아이콘 라이브러리 – lucide-react-native 번들링 오류",
+      "problem": "Metro Bundler에서 lucide-react-native import 실패로 번들링 오류 발생",
+      "cause": "lucide-react-native가 Metro Bundler와 호환되지 않거나 설치되지 않음",
+      "solution": "@expo/vector-icons의 Ionicons 사용 (Expo에 내장, 추가 설치 불필요)",
+      "prevent": "Native 앱에서는 @expo/vector-icons (Ionicons, MaterialIcons 등) 사용, lucide-react-native 사용 금지"
+    },
+    {
+      "fix_id": "FIX-0014",
+      "title": "Next.js 16 동적 라우트 params Promise 언랩",
+      "problem": "콘솔 오류: params.category를 동기 접근. Next.js 16에서 params는 Promise",
+      "cause": "클라이언트 컴포넌트에서 page prop의 params를 즉시 객체로 가정하고 속성에 접근함",
+      "solution": "params 타입을 Promise<{ category: string }>로 지정하고 React.use(params)로 언랩 후 category 사용",
+      "prevent": "Next.js 16+에서 동적 라우트의 params/searchParams는 Promise이므로 React.use()로 언랩한 뒤 속성 접근"
+    },
+    {
+      "fix_id": "FIX-0015",
+      "title": "Native 앱 환경변수 – EXPO_PUBLIC_SERVER_URL 미설정",
+      "problem": "회원가입/로그인 시 network request failed 오류 발생",
+      "cause": ".env 파일 미생성 또는 EXPO_PUBLIC_SERVER_URL 환경변수 미설정",
+      "solution": "apps/native/.env 파일 생성 후 EXPO_PUBLIC_SERVER_URL=http://10.0.2.2:3001 (Android Emulator) 또는 http://YOUR_LOCAL_IP:3001 (실제 기기) 설정",
+      "prevent": "Native 앱은 별도 프로세스이므로 서버 URL을 EXPO_PUBLIC_ 접두사로 명시 필수. Android Emulator는 10.0.2.2, 실제 기기는 로컬 IP 사용"
+    },
+    {
+      "fix_id": "FIX-0016",
+      "title": "Native tRPC 설정 – contextMap[utilName] is not a function",
+      "problem": "Render Error: contextMap[utilName] is not a function (it is undefined)",
+      "cause": "createTRPCOptionsProxy 사용 및 tRPC Provider 미설정으로 React Query 컨텍스트 누락",
+      "solution": "utils/trpc.ts에서 createTRPCReact 사용, _layout.tsx에서 trpc.Provider와 QueryClientProvider 설정, httpBatchLink로 클라이언트 생성",
+      "prevent": "Native 앱에서는 Web과 동일하게 createTRPCReact 사용, Provider 내부에서 useState로 queryClient와 trpcClient 생성 (FIX-0007 패턴)"
+    },
+    {
+      "fix_id": "FIX-0017",
+      "title": "Better Auth Native – missing or null origin",
+      "problem": "회원가입 시 missing or null origin 오류 발생",
+      "cause": "Native 앱에서 origin 헤더 누락 및 trustedOrigins에 필요한 URL 미등록",
+      "solution": "auth-client.ts에 fetchOptions.headers.Origin 추가 (mybettertapp://), auth/index.ts의 trustedOrigins에 localhost:8081, 10.0.2.2:3001, localhost:3001 추가, advanced 설정 추가 (useSecureCookies, crossSubDomainCookies)",
+      "prevent": "Native 앱은 origin 헤더를 명시적으로 설정하고, Better Auth의 trustedOrigins에 모든 개발 환경 URL 등록 필수"
+    }
+  ]
+  

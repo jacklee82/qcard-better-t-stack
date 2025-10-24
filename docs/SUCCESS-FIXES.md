@@ -13,6 +13,144 @@
 - [FIX-0006: Loader default export/import 불일치](#fix-0006)
 - [FIX-0007: tRPC Provider/Client 생성·순서 정정](#fix-0007)
 - [FIX-0008: Sequential Study – undefined length 가드](#fix-0008)
+- [FIX-0009: Dashboard – lucide 아이콘 미수입(Flame/Clock)](#fix-0009)
+- [FIX-0010: SessionTimer – Date 직렬화 문자열 처리](#fix-0010)
+
+---
+
+<a id="fix-0010"></a>
+## FIX-0010: SessionTimer – Date 직렬화 문자열 처리
+
+- scope: `apps/web`
+- tags: [react, nextjs, trpc]
+- files: [`apps/web/src/components/study/session-timer.tsx`]
+- impact: runtime
+
+### 문제
+- 런타임 오류: `TypeError: startTime.getTime is not a function`
+
+### 원인
+- API에서 반환된 `startedAt`이 문자열로 직렬화되어 전달되는데, `SessionTimer`가 `Date`만 가정하고 `getTime()`을 호출함
+
+### 해결
+```tsx
+// Before
+interface SessionTimerProps {
+  startTime: Date
+}
+useEffect(() => {
+  const initialElapsed = Math.floor((Date.now() - startTime.getTime()) / 1000)
+  // ...
+}, [startTime])
+
+// After
+interface SessionTimerProps {
+  startTime: Date | string | number
+}
+const toStartMs = (value: Date | string | number) => {
+  if (value instanceof Date) return value.getTime()
+  if (typeof value === 'number') return value
+  const parsed = Date.parse(value)
+  return Number.isNaN(parsed) ? Date.now() : parsed
+}
+useEffect(() => {
+  const startMs = toStartMs(startTime)
+  const tick = () => {
+    const newElapsed = Math.floor((Date.now() - startMs) / 1000)
+    setElapsed(newElapsed)
+    onTimeUpdate?.(newElapsed)
+  }
+  tick()
+  const interval = setInterval(tick, 1000)
+  return () => clearInterval(interval)
+}, [startTime, onTimeUpdate])
+```
+
+### 검증
+- 학습 페이지(`sequential`, `random`, `review`) 진입 시 타이머 정상 시작/증가
+- linter 경고/오류 없음
+
+### 재발 방지
+
+#### 1. **근본 원인 이해**
+- **tRPC 기본 동작**: `superjson` 없이는 모든 `Date` 객체가 ISO 문자열로 직렬화됨
+- **API 경계**: 서버↔클라이언트 간 데이터는 항상 JSON 직렬화/역직렬화 과정을 거침
+- **타입 안전성의 한계**: TypeScript는 컴파일타임만 체크, 런타임 타입은 보장 안 함
+
+#### 2. **필수 체크리스트 (API 응답에 Date가 포함될 때)**
+- [ ] tRPC 응답에 `Date` 타입이 있는가?
+- [ ] `superjson` transformer가 설정되어 있는가?
+- [ ] 설정 안 되어 있다면, 컴포넌트에서 `Date | string | number`로 타입 정의했는가?
+- [ ] 실제 브라우저에서 테스트했는가? (타입만 믿지 말 것)
+
+#### 3. **해결 방법 (우선순위 순)**
+
+**방법 A: tRPC에 superjson 추가 (권장)**
+```typescript
+// packages/api/src/index.ts
+import superjson from 'superjson'
+import { initTRPC } from '@trpc/server'
+
+export const t = initTRPC.context<Context>().create({
+  transformer: superjson  // Date 자동 직렬화/역직렬화
+})
+```
+
+**방법 B: 컴포넌트에서 유연한 타입 처리**
+```tsx
+interface Props {
+  startTime: Date | string | number  // ✅ 유니온 타입
+}
+
+const toTimestamp = (value: Date | string | number) => {
+  if (value instanceof Date) return value.getTime()
+  if (typeof value === 'number') return value
+  return Date.parse(value)
+}
+```
+
+**방법 C: 호출부에서 명시적 변환 (임시 방편)**
+```tsx
+<SessionTimer startTime={new Date(sessionData.startedAt)} />
+```
+
+#### 4. **테스트 규칙**
+- 새로운 API 응답을 사용하는 컴포넌트는 **반드시 브라우저에서 실행 테스트**
+- `console.log(typeof data)` 로 런타임 타입 확인
+- Date, File, Blob 등 특수 객체는 직렬화 동작 재확인
+
+---
+
+<a id="fix-0009"></a>
+## FIX-0009: Dashboard – lucide 아이콘 미수입(Flame/Clock)
+
+- scope: `apps/web`
+- tags: [react, nextjs, lucide-react]
+- files: [`apps/web/src/app/dashboard/dashboard.tsx`]
+- impact: runtime
+
+### 문제
+- 런타임 오류: `ReferenceError: Flame is not defined`
+
+### 원인
+- `dashboard.tsx`에서 `Flame`, `Clock` 아이콘을 사용했지만 `lucide-react`에서 import하지 않음
+
+### 해결
+```tsx
+// Before
+import { Target, BookOpen, TrendingUp } from 'lucide-react'
+
+// After
+import { Target, BookOpen, TrendingUp, Flame, Clock } from 'lucide-react'
+```
+
+### 검증
+- 대시보드 페이지 렌더링 시 ReferenceError 미발생
+- linter 경고/오류 없음
+
+### 재발 방지
+- UI에서 새로운 아이콘 사용 시, 대응하는 `lucide-react` named import를 반드시 추가한다.
+- PR 리뷰 체크리스트에 "사용 아이콘 import 확인" 항목을 포함한다.
 
 ---
 

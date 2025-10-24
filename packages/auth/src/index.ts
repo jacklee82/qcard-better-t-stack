@@ -11,9 +11,23 @@ export const auth = betterAuth<BetterAuthOptions>({
 
 		schema: schema,
 	}),
-	trustedOrigins: [process.env.CORS_ORIGIN || "", "mybettertapp://", "exp://"],
+	trustedOrigins: [
+		process.env.CORS_ORIGIN || "", 
+		"mybettertapp://", 
+		"exp://",
+		"http://localhost:8081", // Expo Dev Server
+		"http://10.0.2.2:3001", // Android Emulator
+		"http://localhost:3001", // iOS Simulator
+	],
 	emailAndPassword: {
 		enabled: true,
 	},
-  plugins: [nextCookies(), expo()]
+	advanced: {
+		// Native 앱에서 origin 헤더가 없을 수 있으므로 허용
+		useSecureCookies: process.env.NODE_ENV === "production",
+		crossSubDomainCookies: {
+			enabled: true,
+		},
+	},
+	plugins: [nextCookies(), expo()]
 });

@@ -1,14 +1,16 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { trpc } from '@/utils/trpc'
 import { QuestionCard } from '@/components/question/question-card'
 import { ProgressBar } from '@/components/study/progress-bar'
+import { SessionTimer } from '@/components/study/session-timer'
+import { ScoreCard } from '@/components/study/score-card'
 import { Button } from '@/components/ui/button'
 import Loader from '@/components/loader'
 import { toast } from 'sonner'
-import { CheckCircle2, XCircle, ArrowLeft } from 'lucide-react'
+import { CheckCircle2, ArrowLeft } from 'lucide-react'
 
 export default function SequentialStudyPage() {
   const router = useRouter()
@@ -16,9 +18,35 @@ export default function SequentialStudyPage() {
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null)
   const [showAnswer, setShowAnswer] = useState(false)
   const [correctCount, setCorrectCount] = useState(0)
+  const [sessionId, setSessionId] = useState<number | null>(null)
+  const [sessionStartTime, setSessionStartTime] = useState<Date | null>(null)
+  const [elapsedSeconds, setElapsedSeconds] = useState(0)
+  const [showScoreCard, setShowScoreCard] = useState(false)
 
   // 모든 문제 가져오기
   const { data: questions = [], isLoading } = trpc.question.getAll.useQuery()
+
+  // 세션 시작
+  const startSession = trpc.session.start.useMutation({
+    onSuccess: (data) => {
+      setSessionId(data.sessionId)
+      // FIX-0010: Date 직렬화 처리
+      setSessionStartTime(new Date(data.startedAt))
+    }
+  })
+
+  // 세션 종료
+  const endSession = trpc.session.end.useMutation({
+    onSuccess: () => {
+      setShowScoreCard(true)
+    }
+  })
+
+  // 페이지 진입 시 세션 시작
+  useEffect(() => {
+    startSession.mutate({ mode: 'sequential' })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   // 답안 제출
   const submitAnswer = trpc.progress.submit.useMutation({
@@ -56,10 +84,27 @@ export default function SequentialStudyPage() {
       setSelectedAnswer(null)
       setShowAnswer(false)
     } else {
-      // 완료
-      toast.success('모든 문제를 완료했습니다! 🎊')
-      router.push('/dashboard')
+      // 완료 - 세션 종료
+      if (sessionId !== null) {
+        endSession.mutate({
+          sessionId,
+          questionsCompleted: currentIndex + 1,
+          correctAnswers: correctCount,
+        })
+      } else {
+        toast.success('모든 문제를 완료했습니다! 🎊')
+        router.push('/dashboard')
+      }
     }
+  }
+
+  const handleRetry = () => {
+    setCurrentIndex(0)
+    setSelectedAnswer(null)
+    setShowAnswer(false)
+    setCorrectCount(0)
+    setShowScoreCard(false)
+    startSession.mutate({ mode: 'sequential' })
   }
 
   const handlePrevious = () => {
@@ -68,6 +113,19 @@ export default function SequentialStudyPage() {
       setSelectedAnswer(null)
       setShowAnswer(false)
     }
+  }
+
+  // ScoreCard 표시
+  if (showScoreCard) {
+    return (
+      <ScoreCard
+        totalQuestions={currentIndex + 1}
+        correctAnswers={correctCount}
+        mode="sequential"
+        duration={elapsedSeconds}
+        onRetry={handleRetry}
+      />
+    )
   }
 
   if (isLoading) {
@@ -113,9 +171,17 @@ export default function SequentialStudyPage() {
 
         <div className="flex items-center justify-between mb-4">
           <h1 className="text-2xl font-bold">순차 학습</h1>
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <CheckCircle2 className="w-4 h-4 text-green-500" />
-            <span>{correctCount} / {currentIndex + 1}</span>
+          <div className="flex items-center gap-4">
+            {sessionStartTime && (
+              <SessionTimer 
+                startTime={sessionStartTime}
+                onTimeUpdate={setElapsedSeconds}
+              />
+            )}
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <CheckCircle2 className="w-4 h-4 text-green-500" />
+              <span>{correctCount} / {currentIndex + 1}</span>
+            </div>
           </div>
         </div>
 

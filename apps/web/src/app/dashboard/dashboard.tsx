@@ -2,10 +2,12 @@
 import { authClient } from "@/lib/auth-client";
 import { trpc } from "@/utils/trpc";
 import { StatCard } from "@/components/stats/stat-card";
+import { StreakCounter } from "@/components/stats/streak-counter";
+import { GoalCard } from "@/components/stats/goal-card";
 import { CategoryChart } from "@/components/stats/category-chart";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Target, BookOpen, Flame, TrendingUp, Clock } from "lucide-react";
+import { Target, BookOpen, TrendingUp, Flame, Clock } from "lucide-react";
 import Link from "next/link";
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -14,9 +16,10 @@ export default function Dashboard({
 }: {
 	session: typeof authClient.$Infer.Session;
 }) {
+	// FIX-0008: 배열 기본값 가드
 	const { data: stats, isLoading: statsLoading } = trpc.stats.getOverview.useQuery();
-	const { data: categoryStats, isLoading: categoryLoading } = trpc.stats.getByCategory.useQuery();
-	const { data: recentActivity, isLoading: activityLoading } = trpc.stats.getRecentActivity.useQuery({ limit: 5 });
+	const { data: categoryStats = [], isLoading: categoryLoading } = trpc.stats.getByCategory.useQuery();
+	const { data: recentActivity = [], isLoading: activityLoading } = trpc.stats.getRecentActivity.useQuery({ limit: 5 });
 
 	if (statsLoading) {
 		return (
@@ -57,18 +60,16 @@ export default function Dashboard({
 					icon={BookOpen}
 					description="전체 200문제 중"
 				/>
-				<StatCard
-					title="연속 학습일"
-					value={`${stats?.streak || 0}일`}
-					icon={Flame}
-					description={stats?.lastStudiedAt ? '계속 도전하세요!' : '학습을 시작해보세요'}
-				/>
+				<StreakCounter />
 			</div>
 
-			{/* 카테고리별 차트 */}
-			{categoryStats && categoryStats.length > 0 && (
-				<CategoryChart data={categoryStats} />
-			)}
+			{/* 학습 목표 & 카테고리 차트 */}
+			<div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+				<GoalCard />
+				{categoryStats && categoryStats.length > 0 && (
+					<CategoryChart data={categoryStats} />
+				)}
+			</div>
 
 			{/* 최근 활동 */}
 			{recentActivity && recentActivity.length > 0 && (
