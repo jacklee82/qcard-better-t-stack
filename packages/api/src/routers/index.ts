@@ -2,6 +2,9 @@ import { protectedProcedure, publicProcedure, router } from "../index";
 import { questionRouter } from "./question";
 import { progressRouter } from "./progress";
 import { statsRouter } from "./stats";
+import { bookmarkRouter } from "./bookmark";
+import { sessionRouter } from "./session";
+import { goalRouter } from "./goal";
 
 export const appRouter = router({
 	// Health check
@@ -21,6 +24,9 @@ export const appRouter = router({
 	question: questionRouter,
 	progress: progressRouter,
 	stats: statsRouter,
+	bookmark: bookmarkRouter,
+	session: sessionRouter,
+	goal: goalRouter,
 });
 
 export type AppRouter = typeof appRouter;
