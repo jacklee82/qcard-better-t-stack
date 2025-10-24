@@ -126,6 +126,14 @@
       "cause": "Native 앱에서 origin 헤더 누락 및 trustedOrigins에 필요한 URL 미등록",
       "solution": "auth-client.ts에 fetchOptions.headers.Origin 추가 (mybettertapp://), auth/index.ts의 trustedOrigins에 localhost:8081, 10.0.2.2:3001, localhost:3001 추가, advanced 설정 추가 (useSecureCookies, crossSubDomainCookies)",
       "prevent": "Native 앱은 origin 헤더를 명시적으로 설정하고, Better Auth의 trustedOrigins에 모든 개발 환경 URL 등록 필수"
+    },
+    {
+      "fix_id": "FIX-0018",
+      "title": "Git Push 충돌 – MCP push와 로컬 커밋 동시 진행",
+      "problem": "git push 시 rejected 오류 (fetch first), rebase 중 merge conflict 발생",
+      "cause": "MCP github_push_files로 먼저 푸시한 상태에서 로컬에서 추가 작업 후 커밋하여 원격 저장소와 히스토리 불일치",
+      "solution": "git pull --rebase로 원격 변경사항 가져오기, 충돌 파일(goal.ts, goals.ts, scope1.md)은 git checkout --ours로 로컬 버전 선택, git add 후 git rebase --continue (에디터 없이 진행)",
+      "prevent": "MCP push 사용 시 로컬 작업 일시 중단 또는 git pull 먼저 실행. 또는 로컬 git만 사용하여 일관성 유지. 동시 작업 금지"
     }
   ]
   
