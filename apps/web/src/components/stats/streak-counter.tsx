@@ -11,7 +11,7 @@ export function StreakCounter() {
   const streak = streakData?.streak || 0
   const lastStudied = streakData?.lastStudiedAt
 
-  const formatLastStudied = (date: Date | null | undefined) => {
+  const formatLastStudied = (date: string | Date | null | undefined) => {
     if (!date) return '아직 학습하지 않았습니다'
     
     const lastDate = new Date(date)
