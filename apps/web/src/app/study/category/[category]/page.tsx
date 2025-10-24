@@ -39,7 +39,7 @@ export default function CategoryStudyPage({
   // 세션 관리
   const startSession = trpc.session.start.useMutation({
     onSuccess: (data) => {
-      setSessionId(data.id)
+      setSessionId(data.sessionId)
       setSessionStartTime(new Date(data.startedAt))
     }
   })
