@@ -6,6 +6,10 @@ import { db } from "@my-better-t-app/db";
 import * as schema from "@my-better-t-app/db/schema/auth";
 
 export const auth = betterAuth<BetterAuthOptions>({
+	secret: process.env.BETTER_AUTH_SECRET,
+	baseURL: process.env.VERCEL_URL
+		? `https://${process.env.VERCEL_URL}`
+		: "http://localhost:3001",
 	database: drizzleAdapter(db, {
 		provider: "pg",
 
