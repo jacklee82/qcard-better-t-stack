@@ -16,13 +16,14 @@ export const auth = betterAuth<BetterAuthOptions>({
 		schema: schema,
 	}),
 	trustedOrigins: [
-		process.env.CORS_ORIGIN || "", 
+		...(process.env.CORS_ORIGIN ? [process.env.CORS_ORIGIN] : []),
 		"mybettertapp://", 
 		"exp://",
 		"http://localhost:8081", // Expo Dev Server
 		"http://10.0.2.2:3001", // Android Emulator
 		"http://localhost:3001", // iOS Simulator
-	],
+		"http://localhost:3000", // Local Web
+	].filter(Boolean),
 	emailAndPassword: {
 		enabled: true,
 	},
