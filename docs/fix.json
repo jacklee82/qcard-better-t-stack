@@ -42,7 +42,7 @@
     {
       "fix_id": "FIX-0006",
       "title": "Loader default export/import 불일치",
-      "problem": "런타임 오류: Export Loader doesn’t exist",
+      "problem": "런타임 오류: Export Loader doesn't exist",
       "cause": "default export인데 named import로 불러옴",
       "solution": "import Loader from '@/components/loader'로 수정",
       "prevent": "default export는 항상 default import로 불러오기"
@@ -134,6 +134,21 @@
       "cause": "MCP github_push_files로 먼저 푸시한 상태에서 로컬에서 추가 작업 후 커밋하여 원격 저장소와 히스토리 불일치",
       "solution": "git pull --rebase로 원격 변경사항 가져오기, 충돌 파일(goal.ts, goals.ts, scope1.md)은 git checkout --ours로 로컬 버전 선택, git add 후 git rebase --continue (에디터 없이 진행)",
       "prevent": "MCP push 사용 시 로컬 작업 일시 중단 또는 git pull 먼저 실행. 또는 로컬 git만 사용하여 일관성 유지. 동시 작업 금지"
+    },
+    {
+      "fix_id": "FIX-0019",
+      "title": "카테고리 학습 정답 처리 로직 불일치",
+      "problem": "카테고리 학습에서 정답 체크가 클라이언트 측 비교로만 이루어지고, 순차/랜덤 모드와 일관성 없음",
+      "cause": "progress.submit API가 isCorrect를 반환하지 않아 클라이언트에서 직접 비교, 모든 학습 모드(순차/랜덤/카테고리)가 동일한 문제 있음",
+      "solution": "1) progress.submit API에서 isCorrect와 selectedAnswer를 응답에 포함 2) 모든 학습 모드에서 data.isCorrect 사용하도록 통일 3) 클라이언트 측 비교 로직 제거",
+      "prevent": "API 응답 구조 통일, 서버에서 계산한 결과는 응답에 포함, 클라이언트 측 재계산 지양"
+    },
+    {
+      "fix_id": "FIX-0025",
+      "title": "네이티브 인증 우회 시 서버 protected API 차단 문제",
+      "problem": "EXPO_PUBLIC_BYPASS_AUTH=true로 프론트 인증은 우회되지만, 서버의 protectedProcedure는 여전히 세션을 요구하여 GoalCard API 호출 시 401 에러 발생, 대시보드 미표시",
+      "cause": "1) protectedProcedure가 BYPASS_AUTH 환경변수를 인식하지 않음 2) authClient.getCookie()가 null 반환으로 쿠키 미전달 3) GoalCard API 실패 시 대시보드 로딩 무한 대기",
+      "solution": "1) protectedProcedure에서 BYPASS_AUTH 감지 시 세션 체크 우회 2) 클라이언트에서 인증 우회 시 더미 userId 주입 3) GoalCard API 실패 시 fallback 처리 추가",
+      "prevent": "인증 우회 모드는 클라이언트와 서버 모두 적용, protectedProcedure에서 환경변수 체크 추가, API 실패 시 graceful degradation 처리"
     }
   ]
-  
