@@ -48,10 +48,10 @@ export default function SequentialStudyPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // 답안 제출
+  // 답안 제출 (FIX-0019: 서버 응답의 isCorrect 사용)
   const submitAnswer = trpc.progress.submit.useMutation({
-    onSuccess: () => {
-      if (selectedAnswer === questions?.[currentIndex].correctAnswer) {
+    onSuccess: (data) => {
+      if (data.isCorrect) {
         setCorrectCount(prev => prev + 1)
         toast.success('정답입니다! 🎉')
       } else {

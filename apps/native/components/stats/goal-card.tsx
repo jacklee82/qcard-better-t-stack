@@ -13,8 +13,8 @@ export function GoalCard() {
 	const [targetAccuracy, setTargetAccuracy] = useState("80");
 	const [dailyTarget, setDailyTarget] = useState("10");
 
-	const { data: goal, isLoading } = trpc.goal.get.useQuery();
-	const { data: progress } = trpc.goal.getProgress.useQuery();
+	const { data: goal, isLoading, isError, error } = trpc.goal.get.useQuery();
+	const { data: progress, isError: isProgressError } = trpc.goal.getProgress.useQuery();
 	const utils = trpc.useUtils();
 
 	const setGoal = trpc.goal.set.useMutation({
@@ -87,6 +87,22 @@ export function GoalCard() {
 					<Text className="ml-2 text-foreground font-semibold">학습 목표</Text>
 				</View>
 				<ActivityIndicator size="small" color="hsl(221.2 83.2% 53.3%)" />
+			</View>
+		);
+	}
+
+	// FIX-0022: 에러 처리 추가
+	if (isError || isProgressError) {
+		console.error("GoalCard API error:", error);
+		return (
+			<View className="p-4 bg-card rounded-xl border border-border">
+				<View className="flex-row items-center mb-2">
+					<Ionicons name="flag" size={20} color="hsl(221.2 83.2% 53.3%)" />
+					<Text className="ml-2 text-foreground font-semibold">학습 목표</Text>
+				</View>
+				<Text className="text-sm text-muted-foreground">
+					목표 데이터를 불러올 수 없습니다
+				</Text>
 			</View>
 		);
 	}

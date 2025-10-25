@@ -23,7 +23,13 @@ function CustomDrawerContent(props: any) {
 					style: "destructive",
 					onPress: async () => {
 						await authClient.signOut();
-						router.replace("/(auth)/login");
+						const BYPASS_AUTH = (process.env.EXPO_PUBLIC_BYPASS_AUTH ?? "true") === "true";
+						if (BYPASS_AUTH) {
+							// 인증 우회 중엔 로그인 화면으로 보내지 않고 학습 탭으로 이동
+							router.replace("/(drawer)/(tabs)/study");
+						} else {
+							router.replace("/(auth)/login");
+						}
 					},
 				},
 			]

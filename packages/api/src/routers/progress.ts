@@ -80,7 +80,12 @@ export const progressRouter = router({
 			// 사용자 통계 업데이트
 			await updateUserStats(userId);
 
-			return { success: true };
+			// FIX-0019: isCorrect를 응답에 포함하여 클라이언트에서 활용
+			return { 
+				success: true,
+				isCorrect: input.isCorrect,
+				selectedAnswer: input.selectedAnswer
+			};
 		}),
 
 	// 진행 상황 초기화

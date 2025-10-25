@@ -7,8 +7,18 @@ import { View, Text, ActivityIndicator } from "react-native";
 import { trpc } from "@/utils/trpc";
 import { Ionicons } from "@expo/vector-icons";
 
-export function StreakCounter() {
-	const { data: stats, isLoading } = trpc.stats.getOverview.useQuery();
+interface StatsData {
+	streak?: number;
+}
+
+interface StreakCounterProps {
+	stats?: StatsData;  // FIX-0023: props로 stats 받기
+}
+
+export function StreakCounter({ stats: passedStats }: StreakCounterProps) {
+	const { data: stats, isLoading } = trpc.stats.getOverview.useQuery({
+		enabled: !passedStats,  // FIX-0023: props로 받으면 호출 안 함
+	});
 
 	if (isLoading) {
 		return (
@@ -22,7 +32,9 @@ export function StreakCounter() {
 		);
 	}
 
-	const streak = stats?.streak || 0;
+	// FIX-0023: props가 있으면 그것 사용, 없으면 쿼리 결과 사용
+	const finalStats = passedStats || stats;
+	const streak = finalStats?.streak || 0;
 	const streakMessage =
 		streak === 0
 			? "오늘 학습을 시작하세요!"

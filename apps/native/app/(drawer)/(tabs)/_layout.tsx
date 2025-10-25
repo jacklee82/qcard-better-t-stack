@@ -7,6 +7,7 @@ export default function TabLayout() {
 
 	return (
 		<Tabs
+			initialRouteName="study"
 			screenOptions={{
 				headerShown: false,
 				tabBarActiveTintColor: isDarkColorScheme

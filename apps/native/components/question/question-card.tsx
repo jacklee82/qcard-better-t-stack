@@ -3,13 +3,14 @@
  * Web의 QuestionCard를 Native로 이식
  */
 
-import { View, Text, TouchableOpacity, ActivityIndicator } from "react-native";
+import { View, Text, TouchableOpacity, ActivityIndicator, Animated } from "react-native";
 import { CodeBlock } from "./code-block";
 import { AnswerOptions } from "./answer-options";
+import { CodeToggle } from "./code-toggle";
 import { Ionicons } from "@expo/vector-icons";
 import { trpc } from "@/utils/trpc";
 import { showToast } from "@/utils/toast";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 interface Question {
 	id: string;
@@ -20,6 +21,7 @@ interface Question {
 	explanation: string;
 	code: string | null;
 	difficulty: string;
+	originalCorrectAnswer?: number; // 셔플된 문제의 원본 정답 인덱스 (선택사항)
 }
 
 interface QuestionCardProps {
@@ -41,12 +43,18 @@ export function QuestionCard({
 	totalQuestions,
 	showBookmark = true,
 }: QuestionCardProps) {
+	const BYPASS_AUTH = (process.env.EXPO_PUBLIC_BYPASS_AUTH ?? "true") === "true";
 	const [localIsBookmarked, setLocalIsBookmarked] = useState(false);
+	const [isCodeVisible, setIsCodeVisible] = useState(false);
+	
+	// 애니메이션 값 (디폴트: 숨김 상태)
+	const fadeAnim = useRef(new Animated.Value(0)).current;
+	const slideAnim = useRef(new Animated.Value(-20)).current;
 
-	// FIX-0008: 북마크 상태 확인 (기본값 가드)
+	// FIX-0008: 북마크 상태 확인 (기본값 가드, BYPASS 시 비활성화)
 	const { data: isBookmarked = false } = trpc.bookmark.check.useQuery(
 		{ questionId: question.id },
-		{ enabled: showBookmark }
+		{ enabled: showBookmark && !BYPASS_AUTH }
 	);
 
 	// 북마크 토글
@@ -77,6 +85,58 @@ export function QuestionCard({
 	const handleBookmarkClick = () => {
 		toggleBookmark.mutate({ questionId: question.id });
 	};
+
+	// 코드 토글 애니메이션 함수
+	const toggleCodeVisibility = () => {
+		if (isCodeVisible) {
+			// 코드 숨기기: 페이드 아웃 + 슬라이드 업
+			Animated.parallel([
+				Animated.timing(fadeAnim, {
+					toValue: 0,
+					duration: 300,
+					useNativeDriver: true,
+				}),
+				Animated.timing(slideAnim, {
+					toValue: -20,
+					duration: 300,
+					useNativeDriver: true,
+				}),
+			]).start(() => {
+				setIsCodeVisible(false);
+			});
+		} else {
+			// 코드 보이기: 상태 먼저 변경 후 애니메이션
+			setIsCodeVisible(true);
+			
+			// 다음 프레임에서 애니메이션 시작 (렌더링 완료 후)
+			requestAnimationFrame(() => {
+				// 애니메이션 값 초기화
+				fadeAnim.setValue(0);
+				slideAnim.setValue(-20);
+				
+				// 페이드 인 + 슬라이드 다운
+				Animated.parallel([
+					Animated.timing(fadeAnim, {
+						toValue: 1,
+						duration: 300,
+						useNativeDriver: true,
+					}),
+					Animated.timing(slideAnim, {
+						toValue: 0,
+						duration: 300,
+						useNativeDriver: true,
+					}),
+				]).start();
+			});
+		}
+	};
+
+	// 문제가 변경될 때 애니메이션 값 초기화 (디폴트: 숨김 상태)
+	useEffect(() => {
+		fadeAnim.setValue(0);
+		slideAnim.setValue(-20);
+		setIsCodeVisible(false);
+	}, [question.id]);
 
 	const getDifficultyColor = (difficulty: string) => {
 		switch (difficulty.toLowerCase()) {
@@ -132,7 +192,7 @@ export function QuestionCard({
 								{questionNumber} / {totalQuestions}
 							</Text>
 						)}
-						{showBookmark && (
+						{showBookmark && !BYPASS_AUTH && (
 							<TouchableOpacity
 								onPress={handleBookmarkClick}
 								disabled={toggleBookmark.isPending}
@@ -160,8 +220,30 @@ export function QuestionCard({
 
 			{/* Content */}
 			<View className="p-4 gap-6">
-				{/* Code Block */}
-				{question.code && <CodeBlock code={question.code} />}
+				{/* Code Toggle & Code Block */}
+				{question.code && (
+					<>
+						<CodeToggle 
+							isVisible={isCodeVisible} 
+							onToggle={toggleCodeVisibility}
+							disabled={showAnswer}
+						/>
+						{isCodeVisible && (
+							<Animated.View
+								style={{
+									opacity: fadeAnim,
+									transform: [{ translateY: slideAnim }],
+								}}
+							>
+								<View className="relative">
+									<CodeBlock code={question.code} />
+									{/* 코드 블록 상단에 미세한 그림자 효과 */}
+									<View className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-b from-black/5 to-transparent" />
+								</View>
+							</Animated.View>
+						)}
+					</>
+				)}
 
 				{/* Answer Options */}
 				<AnswerOptions

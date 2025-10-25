@@ -11,12 +11,15 @@ import { QuestionCard } from "@/components/question/question-card";
 import { ProgressBar } from "@/components/study/progress-bar";
 import { SessionTimer } from "@/components/study/session-timer";
 import { ScoreCard } from "@/components/study/score-card";
+import { NextButton } from "@/components/study/next-button";
 import { showToast } from "@/utils/toast";
 import { Ionicons } from "@expo/vector-icons";
 import { Container } from "@/components/container";
 
 export default function ReviewStudyScreen() {
 	const router = useRouter();
+	const AUTO_SUBMIT = true;
+	const BYPASS_AUTH = (process.env.EXPO_PUBLIC_BYPASS_AUTH ?? "true") === "true";
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
 	const [showAnswer, setShowAnswer] = useState(false);
@@ -57,10 +60,14 @@ export default function ReviewStudyScreen() {
 		},
 	});
 
-	// 페이지 진입 시 세션 시작
+	// 페이지 진입 시 세션 시작 (BYPASS 시 스킵)
 	useEffect(() => {
 		if (questions.length > 0) {
-			startSession.mutate({ mode: "review" });
+			if (!BYPASS_AUTH) {
+				startSession.mutate({ mode: "review" });
+			} else {
+				setSessionStartTime(new Date());
+			}
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [questions.length]);
@@ -75,9 +82,12 @@ export default function ReviewStudyScreen() {
 				showToast.error("틀렸습니다 😢");
 			}
 			setShowAnswer(true);
+			// 자동 진행 제거 - 사용자가 "다음 문제" 버튼을 눌러야 함
 		},
 		onError: (error) => {
 			showToast.error("제출 중 오류가 발생했습니다: " + error.message);
+			// 오류 시에도 결과 표시만 하고 자동 진행 제거
+			setShowAnswer(true);
 		},
 	});
 
@@ -95,6 +105,37 @@ export default function ReviewStudyScreen() {
 		});
 	};
 
+	const handleSelect = (index: number) => {
+		if (showAnswer || submitAnswer.isPending) {
+			return;
+		}
+		setSelectedAnswer(index);
+		
+		if (AUTO_SUBMIT) {
+			const currentQuestion = questions[currentIndex];
+			const isCorrect = index === currentQuestion.correctAnswer;
+			
+			if (BYPASS_AUTH) {
+				// 로컬 채점 모드
+				if (isCorrect) {
+					setCorrectCount((prev) => prev + 1);
+					showToast.success("정답입니다! 🎉");
+				} else {
+					showToast.error("틀렸습니다 😢");
+				}
+				setShowAnswer(true);
+				// 자동 진행 제거 - 사용자가 "다음 문제" 버튼을 눌러야 함
+			} else {
+				// 서버 제출 모드
+				submitAnswer.mutate({
+					questionId: currentQuestion.id,
+					selectedAnswer: index,
+					isCorrect,
+				});
+			}
+		}
+	};
+
 	const handleNext = () => {
 		if (currentIndex < questions.length - 1) {
 			setCurrentIndex((prev) => prev + 1);
@@ -102,7 +143,9 @@ export default function ReviewStudyScreen() {
 			setShowAnswer(false);
 		} else {
 			// 완료 - 세션 종료
-			if (sessionId !== null) {
+			if (BYPASS_AUTH) {
+				setShowScoreCard(true);
+			} else if (sessionId !== null) {
 				endSession.mutate({
 					sessionId,
 					questionsCompleted: currentIndex + 1,
@@ -121,7 +164,11 @@ export default function ReviewStudyScreen() {
 		setShowAnswer(false);
 		setCorrectCount(0);
 		setShowScoreCard(false);
-		startSession.mutate({ mode: "review" });
+		if (!BYPASS_AUTH) {
+			startSession.mutate({ mode: "review" });
+		} else {
+			setSessionStartTime(new Date());
+		}
 	};
 
 	const handlePrevious = () => {
@@ -213,10 +260,10 @@ export default function ReviewStudyScreen() {
 
 					{/* 문제 카드 */}
 					<View className="mb-6">
-						<QuestionCard
+					<QuestionCard
 							question={currentQuestion}
-							selectedAnswer={selectedAnswer}
-							onAnswerSelect={setSelectedAnswer}
+						selectedAnswer={selectedAnswer}
+						onAnswerSelect={handleSelect}
 							showAnswer={showAnswer}
 							questionNumber={currentIndex + 1}
 							totalQuestions={questions.length}
@@ -224,24 +271,31 @@ export default function ReviewStudyScreen() {
 					</View>
 
 					{/* 액션 버튼 */}
-					<View className="flex-row items-center justify-between gap-3">
-						<TouchableOpacity
-							onPress={handlePrevious}
-							disabled={currentIndex === 0}
-							className={`flex-1 p-4 rounded-lg border border-border ${
-								currentIndex === 0 ? "opacity-50" : "bg-card"
-							}`}
-						>
-							<Text
-								className={`text-center font-medium ${
-									currentIndex === 0 ? "text-muted-foreground" : "text-foreground"
+					{showAnswer ? (
+						// 답 표시 후: 다음 문제 버튼만 표시
+						<NextButton 
+							onNext={handleNext}
+							isLastQuestion={isLastQuestion}
+						/>
+					) : (
+						// 답 선택 전: 이전/제출 버튼 표시
+						<View className="flex-row items-center justify-between gap-3">
+							<TouchableOpacity
+								onPress={handlePrevious}
+								disabled={currentIndex === 0}
+								className={`flex-1 p-4 rounded-lg border border-border ${
+									currentIndex === 0 ? "opacity-50" : "bg-card"
 								}`}
 							>
-								이전 문제
-							</Text>
-						</TouchableOpacity>
+								<Text
+									className={`text-center font-medium ${
+										currentIndex === 0 ? "text-muted-foreground" : "text-foreground"
+									}`}
+								>
+									이전 문제
+								</Text>
+							</TouchableOpacity>
 
-						{!showAnswer ? (
 							<TouchableOpacity
 								onPress={handleSubmit}
 								disabled={selectedAnswer === null || submitAnswer.isPending}
@@ -255,17 +309,8 @@ export default function ReviewStudyScreen() {
 									{submitAnswer.isPending ? "제출 중..." : "제출하기"}
 								</Text>
 							</TouchableOpacity>
-						) : (
-							<TouchableOpacity
-								onPress={handleNext}
-								className="flex-1 p-4 bg-primary rounded-lg"
-							>
-								<Text className="text-primary-foreground text-center font-semibold">
-									{isLastQuestion ? "완료" : "다음 문제"}
-								</Text>
-							</TouchableOpacity>
-						)}
-					</View>
+						</View>
+					)}
 				</View>
 			</ScrollView>
 		</Container>

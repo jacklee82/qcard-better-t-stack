@@ -5,6 +5,7 @@ import { statsRouter } from "./stats";
 import { bookmarkRouter } from "./bookmark";
 import { sessionRouter } from "./session";
 import { goalRouter } from "./goal";
+import { healthRouter } from "./health";
 
 export const appRouter = router({
 	// Health check
@@ -27,6 +28,7 @@ export const appRouter = router({
 	bookmark: bookmarkRouter,
 	session: sessionRouter,
 	goal: goalRouter,
+	health: healthRouter,
 });
 
 export type AppRouter = typeof appRouter;
