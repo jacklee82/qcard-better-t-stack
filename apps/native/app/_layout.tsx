@@ -19,6 +19,7 @@ import { setAndroidNavigationBar } from "@/lib/android-navigation-bar";
 import { authClient } from "@/lib/auth-client";
 import { ErrorBoundary } from "@/components/error-boundary";
 import Toast from "react-native-toast-message";
+import { logEnvironmentInfo, validateEnvironment } from "@/env-config";
 
 const LIGHT_THEME: Theme = {
 	...DefaultTheme,
@@ -30,7 +31,10 @@ const DARK_THEME: Theme = {
 };
 
 export const unstable_settings = {
-	initialRouteName: "(auth)",
+	initialRouteName:
+		(process.env.EXPO_PUBLIC_BYPASS_AUTH ?? "true") === "true"
+			? "(drawer)"
+			: "(auth)",
 };
 
 function RootLayoutNav() {
@@ -38,11 +42,20 @@ function RootLayoutNav() {
 	const segments = useSegments();
 	const router = useRouter();
 	const session = authClient.useSession();
+	const BYPASS_AUTH = (process.env.EXPO_PUBLIC_BYPASS_AUTH ?? "true") === "true";
 
 	// 인증 가드
 	useEffect(() => {
 		const inAuthGroup = segments[0] === "(auth)";
-		
+
+		if (BYPASS_AUTH) {
+			// 인증 우회 시, 인증 그룹에 있으면 학습 탭으로 이동
+			if (inAuthGroup) {
+				router.replace("/(drawer)/(tabs)/study");
+			}
+			return;
+		}
+
 		if (!session.isPending) {
 			if (!session.data && !inAuthGroup) {
 				// 로그인하지 않았고 인증 화면이 아니면 로그인으로 이동
@@ -52,10 +65,10 @@ function RootLayoutNav() {
 				router.replace("/(drawer)/(tabs)/dashboard");
 			}
 		}
-	}, [session, segments]);
+	}, [session, segments, BYPASS_AUTH]);
 
-	// 세션 로딩 중
-	if (session.isPending) {
+	// 세션 로딩 중 (인증 우회 시에는 대기하지 않음)
+	if (!BYPASS_AUTH && session.isPending) {
 		return null; // 또는 LoadingSpinner
 	}
 
@@ -82,8 +95,21 @@ export default function RootLayout() {
 	const { colorScheme } = useColorScheme();
 	const [isColorSchemeLoaded, setIsColorSchemeLoaded] = React.useState(false);
 
+	// 환경변수 검증 및 로깅
+	useEffect(() => {
+		logEnvironmentInfo();
+		const validation = validateEnvironment();
+		if (!validation.isValid) {
+			console.error('환경변수 설정에 문제가 있습니다. .env 파일을 확인해주세요.');
+		}
+	}, []);
+
 	// tRPC 클라이언트 생성 (Provider 내부에서)
 	const [queryClient] = useState(() => new QueryClient());
+	
+	// FIX-0025: BYPASS_AUTH 모드 감지
+	const BYPASS_AUTH = (process.env.EXPO_PUBLIC_BYPASS_AUTH ?? "true") === "true";
+	
 	const [trpcClient] = useState(() =>
 		trpc.createClient({
 			links: [
@@ -91,7 +117,19 @@ export default function RootLayout() {
 					url: `${process.env.EXPO_PUBLIC_SERVER_URL}/api/trpc`,
 					headers() {
 						const headers = new Map<string, string>();
-						const cookies = authClient.getCookie();
+						
+						// FIX-0025: 인증 우회 모드에서도 쿠키 설정 (서버가 더미 세션 사용)
+						let cookies = authClient.getCookie();
+						if (!cookies && BYPASS_AUTH) {
+							// 인증 우회 모드: 더미 쿠키 생성
+							cookies = "bypass-mode=true";
+							console.log("🔐 tRPC Session (Bypass):", "✅ Dummy cookie injected");
+						} else if (cookies) {
+							console.log("🔐 tRPC Session:", "✅ Cookie exists");
+						} else {
+							console.log("🔐 tRPC Session:", "❌ No cookie");
+						}
+						
 						if (cookies) {
 							headers.set("Cookie", cookies);
 						}

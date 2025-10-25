@@ -15,7 +15,12 @@ export default function DashboardScreen() {
 	const { data: recentActivity = [], isLoading: activityLoading } = 
 		trpc.stats.getRecentActivity.useQuery({ limit: 5 });
 	const { data: categoryStats = [] } = trpc.stats.getByCategory.useQuery();
+	
+	// FIX-0025: GoalCard API 실패 시에도 대시보드 표시
+	const goalQuery = trpc.goal.get.useQuery();
+	const { isLoading: goalLoading, isError: goalError } = goalQuery;
 
+	// FIX-0025: stats만 로딩 중이면 대시보드 표시 (GoalCard는 나중에 로드)
 	if (statsLoading) {
 		return (
 			<Container>
@@ -25,6 +30,16 @@ export default function DashboardScreen() {
 			</Container>
 		);
 	}
+
+	// FIX-0021: stats 기본값 설정 (null safety)
+	const safeStats = stats || {
+		totalQuestions: 0,
+		correctAnswers: 0,
+		totalAttempts: 0,
+		accuracy: 0,
+		streak: 0,
+		lastStudiedAt: null,
+	};
 
 	return (
 		<Container>
@@ -45,14 +60,14 @@ export default function DashboardScreen() {
 						{/* 정답률 */}
 						<View className="flex-1 p-4 bg-card rounded-lg border border-border">
 							<View className="flex-row items-center mb-2">
-								<Ionicons name="target" size={20} color="hsl(221.2 83.2% 53.3%)" />
+						<Ionicons name="analytics" size={20} color="hsl(221.2 83.2% 53.3%)" />
 								<Text className="ml-2 text-sm text-muted-foreground">정답률</Text>
 							</View>
 							<Text className="text-2xl font-bold text-foreground">
-								{stats?.accuracy.toFixed(1)}%
+								{safeStats.accuracy.toFixed(1)}%
 							</Text>
 							<Text className="text-xs text-muted-foreground mt-1">
-								{stats?.correctAnswers} / {stats?.totalAttempts} 정답
+								{safeStats.correctAnswers} / {safeStats.totalAttempts} 정답
 							</Text>
 						</View>
 
@@ -63,7 +78,7 @@ export default function DashboardScreen() {
 								<Text className="ml-2 text-sm text-muted-foreground">학습 문제</Text>
 							</View>
 							<Text className="text-2xl font-bold text-foreground">
-								{stats?.totalQuestions || 0}
+								{safeStats.totalQuestions || 0}
 							</Text>
 							<Text className="text-xs text-muted-foreground mt-1">
 								전체 200문제 중
@@ -71,14 +86,16 @@ export default function DashboardScreen() {
 						</View>
 					</View>
 
-					{/* 연속 학습일 */}
-					<StreakCounter />
+					{/* 연속 학습일 - FIX-0023: stats 전달하여 중복 API 호출 방지 */}
+					<StreakCounter stats={safeStats} />
 				</View>
 
-				{/* 학습 목표 */}
-				<View className="px-6 pb-4">
-					<GoalCard />
-				</View>
+				{/* 학습 목표 - FIX-0025: GoalCard API 실패 시에도 렌더링 */}
+				{!goalError && (
+					<View className="px-6 pb-4">
+						<GoalCard />
+					</View>
+				)}
 
 				{/* 카테고리 차트 */}
 				{categoryStats && categoryStats.length > 0 && (
