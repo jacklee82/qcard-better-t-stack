@@ -1,0 +1,30 @@
+{
+  "cli": {
+    "version": ">= 16.24.1",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "android": {
+        "projectDir": "apps/native"
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "projectDir": "apps/native"
+      }
+    },
+    "production": {
+      "autoIncrement": true,
+      "android": {
+        "projectDir": "apps/native"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}
