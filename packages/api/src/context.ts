@@ -1,6 +1,6 @@
 import type { NextRequest } from "next/server";
-import { auth } from "@my-better-t-app/auth";
-import { db } from "@my-better-t-app/db";
+import { auth } from "@qcard-better-t-stack/auth";
+import { db } from "@qcard-better-t-stack/db";
 
 export async function createContext(req: NextRequest) {
 	const session = await auth.api.getSession({
