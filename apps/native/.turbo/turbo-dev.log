@@ -1,0 +1,254 @@
+[?9001h[?1004h[?25l[2J[m[35m[2m[H$[m[1m[2m[1Cexpo start --clear
+]0;C:\Users\jack\.bun\bin\bun.exe[?25h[22m[90menv: load .env
+[m[90menv: export EXPO_PUBLIC_BYPASS_AUTH DATABASE_URL BETTER_AUTH_SECRET BETTER_AUTH_URL CORS_ORIGIN EXPO_PUBLIC_SERVER_URL
+[m[90mStarting project at D:\AI_Work\20. Qcard\my-better-t-app\apps\native
+[m[90mReact Compiler enabled
+[m[2mStarting Metro Bundler
+[22m[33mwarning[m: Bundler cache is empty, rebuilding [2m(this may take a minute)
+[22m[33mThe following packages should be updated for best compatibility with the installed [1mexpo[22m version:
+[m[33m  [1mexpo[36m[22m@[31m54.0.19 [33m- expected version: [32m54.0.20[m
+[33m  [1mreact-native[36m[22m@[31m0.81.4 [33m- expected version: [32m0.81.5[K[m
+[33m  [1mreact-native-svg[36m[22m@[31m15.14.0 [33m- expected version: [32m15.12.1[K[m
+[33m  [1mtypescript[36m[22m@[31m5.8.3 [33m- expected version: [32m~5.9.2[K[m
+[33mYour project may not work correctly until you install the expected versions of the packages.[11;1H[m
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+█ ▄▄▄▄▄ █▀▄█▀ ██  █ ▄▄▄▄▄ █
+█ █   █ █▄   ▄█▄▄██ █   █ █
+█ █▄▄▄█ █ ▀█▀█ █ ██ █▄▄▄█ █
+█▄▄▄▄▄▄▄█ ▀▄█ █ ▀ █▄▄▄▄▄▄▄█
+█▄ █ █▀▄ ██ ▀█ ▀██▀  ▄▀▄▄▀█
+█ ▄ █▀█▄█ ▄▄██ ▀▀▄▄▀ ▀▀█▄▄█
+█▄▀█▄█ ▄  █▀▀   █▀█ ▄█ ██▀█
+█▄▀▀▄█▀▄▀▀█▀█  ██ ▄▄ ▀▀██▄█
+█▄▄▄▄▄▄▄▄▀  ▄▄█▄  ▄▄▄ █ ▄ █
+█ ▄▄▄▄▄ █▄█▄▀██▄  █▄█  ▀▄▄█
+█ █   █ █▀█▄▄█ ▀▀▄ ▄▄ █▀▄██
+█ █▄▄▄█ █▀█▄█▄  █  █▄  ▄█▄█
+█▄▄▄▄▄▄▄█▄▄▄▄█▄▄█▄███▄▄█▄▄█
+
+› Metro waiting on [4mexp://192.168.10.154:8081[24m
+› Scan the QR code above with Expo Go (Android) or the Camera app (iOS)
+
+› Web is waiting on [4mhttp://localhost:8081[24m[K
+
+› Using [36mExpo Go[K[m
+› Press [1ms[22m [2m│[22m switch to development build[K
+
+› Press [1ma[22m [2m│[22m open Android[K
+› Press [1mw[22m [2m│[22m open web[K
+
+› Press [1mj[22m [2m│[22m open debugger[K
+› Press [1mr[22m [2m│[22m reload app[K
+› Press [1mm[22m [2m│[22m toggle menu[K
+› [1mshift+m[22m [2m│[22m more tools[K
+› Press [1mo[22m [2m│[22m open project code in your editor[K
+
+› Press [1m?[22m [2m│[22m show all commands[K
+
+Logs for your project will appear below.[2m Press Ctrl+C to exit.[22m[K
+[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [37m[47m░░░░░░░░░░░░░░░░[m[1m  0.0% [22m[2m(0/1)[22m
+[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [37m[47m░░░░░░░░░░░░░░░░[m[1m  1.0% [22m[2m(1/1)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓[37m[47m░░░░░░░░░░░░░░░[m[1m  9.0% [22m[2m( 3/10)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓[37m[47m░░░░░░░░░░░░░░[m[1m 16.0% [22m[2m( 4/10)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓[37m[47m░░░░░░░░░░░░░░[m[1m 16.0% [22m[2m( 6/19)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓[37m[47m░░░░░░░░░░░░░░[m[1m 16.0% [22m[2m(10/43)[22m[K
+[K[?25l[10;1H[?25h[?25l[K
+[K[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓[37m[47m░░░░░░░░░░░░░░[m[1m 16.0% [22m[2m(15/50)
+[?25l[22m[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓[37m[47m░░░░░░░░░░░░░░[m[1m 16.0% [22m[2m( 16/133)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓[37m[47m░░░░░░░░░░░░░░[m[1m 16.0% [22m[2m( 21/149)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓[37m[47m░░░░░░░░░░░░░░[m[1m 16.0% [22m[2m( 28/173)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓[37m[47m░░░░░░░░░░░░░░[m[1m 16.0% [22m[2m( 34/186)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓[37m[47m░░░░░░░░░░░░░░[m[1m 16.0% [22m[2m( 43/190)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓[37m[47m░░░░░░░░░░░░░░[m[1m 16.0% [22m[2m( 45/197)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓[37m[47m░░░░░░░░░░░░░░[m[1m 16.0% [22m[2m( 48/209)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓[37m[47m░░░░░░░░░░░░░░[m[1m 16.0% [22m[2m( 51/211)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓[37m[47m░░░░░░░░░░░░░░[m[1m 16.0% [22m[2m( 55/222)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓[37m[47m░░░░░░░░░░░░░░[m[1m 16.0% [22m[2m( 56/223)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓[37m[47m░░░░░░░░░░░░░░[m[1m 16.0% [22m[2m( 57/223)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓[37m[47m░░░░░░░░░░░░░░[m[1m 16.0% [22m[2m( 60/237)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓[37m[47m░░░░░░░░░░░░░░[m[1m 16.0% [22m[2m( 63/238)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓[37m[47m░░░░░░░░░░░░░░[m[1m 16.0% [22m[2m( 65/245)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓[37m[47m░░░░░░░░░░░░░░[m[1m 16.0% [22m[2m( 68/246)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓[37m[47m░░░░░░░░░░░░░░[m[1m 16.0% [22m[2m( 74/250)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓[37m[47m░░░░░░░░░░░░░░[m[1m 16.0% [22m[2m( 81/259)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓[37m[47m░░░░░░░░░░░░░░[m[1m 16.0% [22m[2m( 89/263)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓[37m[47m░░░░░░░░░░░░░░[m[1m 16.0% [22m[2m( 95/273)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓[37m[47m░░░░░░░░░░░░░░[m[1m 16.0% [22m[2m(101/277)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓[37m[47m░░░░░░░░░░░░░░[m[1m 16.0% [22m[2m(106/280)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓[37m[47m░░░░░░░░░░░░░░[m[1m 16.1% [22m[2m(115/287)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓[37m[47m░░░░░░░░░░░░░░[m[1m 17.6% [22m[2m(122/291)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓[37m[47m░░░░░░░░░░░░░░[m[1m 17.8% [22m[2m(127/301)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓[37m[47m░░░░░░░░░░░░░[m[1m 18.9% [22m[2m(132/304)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓[37m[47m░░░░░░░░░░░░░[m[1m 19.7% [22m[2m(137/309)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓[37m[47m░░░░░░░░░░░░░[m[1m 20.0% [22m[2m(141/315)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓[37m[47m░░░░░░░░░░░░░[m[1m 20.3% [22m[2m(142/315)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓[37m[47m░░░░░░░░░░░░░[m[1m 20.5% [22m[2m(144/318)[22m[K
+[K[?25l[10;1H[?25h[?25l[K
+[K[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓[37m[47m░░░░░░░░░░░░░[m[1m 20.5% [22m[2m(149/330)
+[22m[?25l[10;1H[?25h[?25l[K
+[K[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓[37m[47m░░░░░░░░░░░░░[m[1m 21.9% [22m[2m(155/331)
+[?25l[22m[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓[37m[47m░░░░░░░░░░░░░[m[1m 22.2% [22m[2m(156/331)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓[37m[47m░░░░░░░░░░░░░[m[1m 22.2% [22m[2m(163/352)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓[37m[47m░░░░░░░░░░░░░[m[1m 23.8% [22m[2m(179/367)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓[37m[47m░░░░░░░░░░░░[m[1m 26.2% [22m[2m(193/377)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓[37m[47m░░░░░░░░░░░░[m[1m 28.5% [22m[2m(215/403)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓[37m[47m░░░░░░░░░░░[m[1m 31.8% [22m[2m(235/417)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓[37m[47m░░░░░░░░░░░[m[1m 32.5% [22m[2m(255/447)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓[37m[47m░░░░░░░░░░░[m[1m 35.9% [22m[2m(283/472)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓[37m[47m░░░░░░░░░░[m[1m 40.2% [22m[2m(307/484)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓[37m[47m░░░░░░░░░░[m[1m 43.4% [22m[2m(328/498)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓[37m[47m░░░░░░░░░░[m[1m 43.4% [22m[2m(350/536)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓[37m[47m░░░░░░░░░░[m[1m 43.7% [22m[2m(373/564)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓[37m[47m░░░░░░░░░[m[1m 46.8% [22m[2m(392/573)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓[37m[47m░░░░░░░░[m[1m 51.7% [22m[2m(419/583)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓[37m[47m░░░░░░░░[m[1m 54.0% [22m[2m(432/588)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░░░[m[1m 62.6% [22m[2m(470/594)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░░░[m[1m 68.3% [22m[2m(504/610)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.1% [22m[2m(534/616)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.1% [22m[2m(552/642)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.1% [22m[2m(571/686)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.1% [22m[2m(596/719)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.1% [22m[2m(624/751)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.1% [22m[2m(648/799)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.1% [22m[2m(669/826)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.1% [22m[2m(690/843)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.1% [22m[2m(691/843)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.1% [22m[2m(692/843)[22m[K
+[K[?25l[10;1H[?25h[?25l[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.1% [22m[2m(692/845)[22m[K
+[K[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.1% [22m[2m(693/845)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.1% [22m[2m(694/852)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.1% [22m[2m(698/858)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.1% [22m[2m(702/858)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.1% [22m[2m(710/864)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.1% [22m[2m(731/876)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.1% [22m[2m(758/895)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.8% [22m[2m(786/903)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.8% [22m[2m(808/937)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.8% [22m[2m(831/960)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.8% [22m[2m( 852/1007)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.8% [22m[2m( 857/1007)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.8% [22m[2m( 867/1017)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.8% [22m[2m( 880/1078)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.8% [22m[2m( 898/1094)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.8% [22m[2m( 929/1106)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.8% [22m[2m( 968/1131)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.8% [22m[2m( 996/1184)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.8% [22m[2m(1016/1235)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.8% [22m[2m(1050/1266)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.8% [22m[2m(1079/1302)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 75.8% [22m[2m(1108/1320)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 77.3% [22m[2m(1163/1323)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 77.3% [22m[2m(1183/1373)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 77.3% [22m[2m(1199/1394)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 77.3% [22m[2m(1213/1428)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 77.3% [22m[2m(1225/1442)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 77.3% [22m[2m(1232/1446)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 77.3% [22m[2m(1239/1447)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 77.3% [22m[2m(1252/1452)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 77.3% [22m[2m(1269/1459)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 77.3% [22m[2m(1291/1474)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 77.6% [22m[2m(1302/1478)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░░[m[1m 78.5% [22m[2m(1311/1480)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░[m[1m 81.6% [22m[2m(1346/1490)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░[m[1m 84.1% [22m[2m(1373/1497)[22m[K
+[K[?25l[10;1H[?25h[?25l[K
+[K[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░[m[1m 84.1% [22m[2m(1381/1515)
+[?25l[22m[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░[m[1m 84.1% [22m[2m(1392/1518)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░[m[1m 84.1% [22m[2m(1409/1546)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░[m[1m 84.2% [22m[2m(1422/1550)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░[m[1m 84.2% [22m[2m(1436/1570)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░[m[1m 84.2% [22m[2m(1455/1596)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░[m[1m 84.4% [22m[2m(1473/1603)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░[m[1m 85.8% [22m[2m(1496/1615)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░[m[1m 86.7% [22m[2m(1514/1626)[22m[K
+[K[?25l[10;1H[?25h[?25l[K
+[K[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░[m[1m 86.9% [22m[2m(1521/1632)
+[?25l[22m[10;1H[?25h[?25l[K
+[K[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░[m[1m 87.0% [22m[2m(1522/1632)
+[?25l[22m[10;1H[?25h[?25l[K
+[K[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░[m[1m 87.0% [22m[2m(1527/1645)
+[?25l[22m[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░[m[1m 87.0% [22m[2m(1537/1651)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░░[m[1m 87.2% [22m[2m(1544/1653)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░[m[1m 87.9% [22m[2m(1551/1654)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░[m[1m 88.7% [22m[2m(1558/1654)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░[m[1m 88.8% [22m[2m(1560/1655)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░[m[1m 88.8% [22m[2m(1567/1668)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░[m[1m 88.8% [22m[2m(1581/1681)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░[m[1m 89.2% [22m[2m(1593/1687)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░[m[1m 89.2% [22m[2m(1606/1720)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░[m[1m 89.2% [22m[2m(1618/1773)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░[m[1m 89.2% [22m[2m(1638/1787)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░[m[1m 89.2% [22m[2m(1668/1811)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░[m[1m 89.2% [22m[2m(1698/1811)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░[m[1m 90.3% [22m[2m(1725/1815)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░░[m[1m 92.7% [22m[2m(1757/1825)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░[m[1m 94.0% [22m[2m(1790/1846)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░[m[1m 96.6% [22m[2m(1822/1854)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░[m[1m 96.6% [22m[2m(1850/1887)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░[m[1m 97.5% [22m[2m(1879/1903)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░[m[1m 99.3% [22m[2m(1911/1918)[22m[K
+[K[?25l[10;1H[?25h[1mAndroid[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░[m[1m 99.9% [22m[2m(1919/1919)[22m[K
+[K[?25l[10;1H[?25h[32m[1mAndroid[22m Bundled [m[2m16203ms node_modules\expo-router\entry.js (1919 modules)[22m[K[1m
+Android[22m [2mnode_modules\expo-router\[22m[1mentry.js[22m [32m[42m▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓[37m[47m░[m[1m 99.9% [22m[2m(1919/1919)[22m[K
+[?25l[10;1H[?25h[?25l[K
+[K[10;1H[?25h[33m[1m[7m WARN [m SafeAreaView has been deprecated and will be removed in a future release. Please use 'react-native-safe-area-context' instead. See https://github.com/th3rdwave/react-native-safe
+[10;92He-area-context
+[37m[1m[7m LOG [m 🔧 환경변수 설정:
+[37m[1m[7m LOG [m   SERVER_URL: https://qcard-better-t-stack-web.vercel.app
+[37m[1m[7m LOG [m   BYPASS_AUTH: false
+[37m[1m[7m LOG [m   NODE_ENV: development[K
+[37m[1m[7m LOG [m ✅ 환경변수 설정이 올바릅니다.[K
+[33m[1m[7m WARN [m `setBackgroundColorAsync` is not supported with edge-to-edge enabled.[K
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 진행률 저장 완료
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 진행률 저장 완료
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 진행률 저장 완료
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 진행률 저장 완료
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 진행률 저장 완료
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 진행률 저장 완료
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 진행률 저장 완료
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 진행률 저장 완료
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 진행률 저장 완료
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 진행률 저장 완료
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists
+[37m[1m[7m LOG [m 🔐 tRPC Session: ✅ Cookie exists

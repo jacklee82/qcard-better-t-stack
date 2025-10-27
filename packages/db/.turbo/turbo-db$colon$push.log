@@ -1,0 +1,46 @@
+[?9001h[?1004h[?25l[2J[m[35m[2m[H$[m[1m[2m[1Cdrizzle-kit push
+]0;C:\Users\jack\.bun\bin\bun.exe[?25h[22m[90mNo config path provided, using default 'drizzle.config.ts'
+[m[90mReading config file 'D:\AI_Work\20. Qcard\my-better-t-app\packages\db\drizzle.config.ts'
+[m[dotenv@17.2.3] injecting env (5) from ..\..\apps\web\.env [2m-- tip: 🔑 add access controls to secrets: https://dotenvx.com/ops
+[22m[90mUsing 'pg' driver for database querying
+[m[⣷] Pulling schema from database...
+[?25l[8;1H[⣯] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⣟] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⡿] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⢿] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⣻] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⣽] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⣷] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⣯] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⣟] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⡿] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⢿] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⣻] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⣽] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⣷] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⣯] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⣟] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⡿] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⢿] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⣻] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⣽] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⣷] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⣯] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⣟] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⡿] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⢿] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⣻] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⣽] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⣷] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⣯] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⣟] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⡿] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⢿] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⣻] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⣽] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⣷] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⣯] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[⣟] Pulling schema from database...[K
+[K[?25h[?25l[8;1H[[32m✓[m] Pulling schema from database...[K
+[K[?25h[[34mi[m] No changes detected
+[?9001l[?1004l

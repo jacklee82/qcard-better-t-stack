@@ -1,0 +1,32 @@
+[?9001h[?1004h[?25l[2J[m[35m[2m[H$[m[1m[2m[1Cbun run src/seed.ts
+]0;C:\Users\jack\.bun\bin\bun.exe[?25h[22m[dotenv@17.2.3] injecting env (5) from ..\..\apps\web\.env [2m-- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[22m🌱 Starting seed...
+📁 Reading from: D:\AI_Work\20. Qcard\my-better-t-app\all-questions.json
+📚 Found 300 questions to seed
+🗑️  Clearing existing questions...
+📝 Inserting questions...
+✅ Seed completed successfully!
+   Inserted 300 questions
+
+📊 Statistics:
+   Categories: 14
+   - 라이브러리 임포트: 23
+   - 데이터 불러오기: 27
+   - 데이터 시각화: 29
+   - 그룹화 및 집계: 23
+   - 데이터 전처리: 32
+   - 결측치 처리: 20
+   - 범주형 인코딩: 15
+   - 데이터셋 분리: 14
+   - 스케일링: 16
+   - 기본 모델링: 17
+   - 앙상블 모델링: 17
+   - 모델 성능 평가: 25
+   - 딥러닝 모델 구성: 24
+   - 딥러닝 평가 및 시각화: 18
+
+   Difficulties:
+   - Easy: 126
+   - Medium: 139
+   - Hard: 35
+[?9001l[?1004l
