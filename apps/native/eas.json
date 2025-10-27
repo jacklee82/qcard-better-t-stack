@@ -13,7 +13,7 @@
         "buildType": "apk"
       },
       "env": {
-        "EXPO_PUBLIC_SERVER_URL": "https://qcard-better-t-stack-web.vercel.app",
+        "EXPO_PUBLIC_SERVER_URL": "https://my-better-t-app-web.vercel.app",
         "EXPO_PUBLIC_BYPASS_AUTH": "false"
       }
     },
@@ -22,7 +22,7 @@
         "buildType": "app-bundle"
       },
       "env": {
-        "EXPO_PUBLIC_SERVER_URL": "https://qcard-better-t-stack-web.vercel.app",
+        "EXPO_PUBLIC_SERVER_URL": "https://my-better-t-app-web.vercel.app",
         "EXPO_PUBLIC_BYPASS_AUTH": "false"
       }
     }
@@ -31,4 +31,3 @@
     "production": {}
   }
 }
-
