@@ -1,12 +1,12 @@
 {
   "expo": {
     "name": "Qcard - Python 학습",
-    "slug": "qcard-better-t-stack",
+    "slug": "my-better-t-app",
     "version": "1.0.0",
     "description": "Python과 데이터 분석을 위한 200개 플래시카드 학습 앱",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "qcard",
+    "scheme": "mybettertapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
@@ -49,7 +49,10 @@
       "reactCompiler": true
     },
     "extra": {
-      "router": {}
+      "router": {},
+      "eas": {
+        "projectId": "4a5735d1-8e50-451b-9c75-76399d934fb1"
+      }
     },
     "owner": "jacklee82"
   }
