@@ -17,6 +17,7 @@ export function GoalCard() {
 
   const { data: goal, isLoading } = trpc.goal.get.useQuery()
   const { data: progress } = trpc.goal.getProgress.useQuery()
+  const { data: totalCount = 0 } = trpc.question.getCount.useQuery()
   const utils = trpc.useUtils()
 
   const setGoal = trpc.goal.set.useMutation({
@@ -48,8 +49,8 @@ export function GoalCard() {
       toast.error('정답률은 0~100 사이로 입력해주세요')
       return
     }
-    if (dailyTarget < 1 || dailyTarget > 200) {
-      toast.error('일일 문제 수는 1~200 사이로 입력해주세요')
+    if (dailyTarget < 1 || dailyTarget > totalCount) {
+      toast.error(`일일 문제 수는 1~${totalCount} 사이로 입력해주세요`)
       return
     }
 
@@ -129,13 +130,13 @@ export function GoalCard() {
               id="dailyTarget"
               type="number"
               min="1"
-              max="200"
+              max={totalCount.toString()}
               value={dailyTarget}
               onChange={(e) => setDailyTarget(Number(e.target.value))}
               placeholder="10"
             />
             <p className="text-xs text-muted-foreground">
-              하루에 풀고 싶은 문제 수를 입력하세요 (1-200)
+              하루에 풀고 싶은 문제 수를 입력하세요 (1-{totalCount})
             </p>
           </div>
 

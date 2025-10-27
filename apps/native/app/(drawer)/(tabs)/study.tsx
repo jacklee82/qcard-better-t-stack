@@ -2,15 +2,17 @@ import { Container } from "@/components/container";
 import { ScrollView, Text, View, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
+import { trpc } from "@/utils/trpc";
 
 export default function StudyScreen() {
 	const router = useRouter();
+	const { data: totalCount = 0 } = trpc.question.getCount.useQuery();
 
 	const studyModes = [
 		{
 			id: "sequential",
 			title: "순차 학습",
-			description: "전체 200문제를 순서대로",
+			description: `전체 ${totalCount}문제를 순서대로`,
 			icon: "list" as const,
 			color: "hsl(221.2 83.2% 53.3%)",
 			bgColor: "bg-blue-500/10",

@@ -15,6 +15,7 @@ export function GoalCard() {
 
 	const { data: goal, isLoading, isError, error } = trpc.goal.get.useQuery();
 	const { data: progress, isError: isProgressError } = trpc.goal.getProgress.useQuery();
+	const { data: totalCount = 0 } = trpc.question.getCount.useQuery();
 	const utils = trpc.useUtils();
 
 	const setGoal = trpc.goal.set.useMutation({
@@ -49,8 +50,8 @@ export function GoalCard() {
 			Alert.alert("오류", "정답률은 0~100 사이로 입력해주세요");
 			return;
 		}
-		if (isNaN(daily) || daily < 1 || daily > 200) {
-			Alert.alert("오류", "일일 문제 수는 1~200 사이로 입력해주세요");
+		if (isNaN(daily) || daily < 1 || daily > totalCount) {
+			Alert.alert("오류", `일일 문제 수는 1~${totalCount} 사이로 입력해주세요`);
 			return;
 		}
 
@@ -149,7 +150,7 @@ export function GoalCard() {
 						placeholderTextColor="#9CA3AF"
 					/>
 					<Text className="text-xs text-muted-foreground mt-1">
-						하루에 풀고 싶은 문제 수를 입력하세요 (1-200)
+						하루에 풀고 싶은 문제 수를 입력하세요 (1-{totalCount})
 					</Text>
 				</View>
 

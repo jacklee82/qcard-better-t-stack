@@ -2598,5 +2598,655 @@
     "explanation": "model.predict()는 모델로 예측을 수행하는 메서드입니다. model.forecast()는 존재하지 않는 메서드입니다.",
     "code": "y_pred = model.predict(X_test)",
     "difficulty": "easy"
+  },
+  {
+    "id": "q201",
+    "category": "데이터 불러오기",
+    "question": "df.info() 실행 결과, 'Age' 컬럼이 'Non-Null Count'가 'Total'보다 적고 'Dtype'이 'float64'로 나왔습니다. 머신러닝 학습 전 'Age' 컬럼에 필요한 전처리는 무엇인가요?",
+    "options": [
+      "결측치 처리 (예: 평균/중앙값 대체)",
+      "타입 변경 (예: int로 변경)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Non-Null Count가 Total보다 적다는 것은 결측치(Missing Value)가 존재한다는 의미입니다. 모델 학습 전에는 결측치를 채우거나(fillna) 삭제(dropna)해야 합니다.",
+    "code": "df['Age'] = df['Age'].fillna(df['Age'].median())",
+    "difficulty": "medium"
+  },
+  {
+    "id": "q202",
+    "category": "모델 성능 평가",
+    "question": "분류 모델의 classification_report() 결과, 'Class A'의 'recall' 값이 0.50으로 나왔습니다. 이 값은 무엇을 의미하나요?",
+    "options": [
+      "모델이 'Class A'로 예측한 것 중 절반만 맞았다.",
+      "실제 'Class A' 데이터 중 절반만 'Class A'로 올바르게 예측했다."
+    ],
+    "correctAnswer": 1,
+    "explanation": "재현율(Recall)은 실제 Positive 샘플 중에서 모델이 Positive로 올바르게 예측한 샘플의 비율입니다. (TP / (TP + FN))",
+    "code": "print(classification_report(y_test, y_pred))",
+    "difficulty": "hard"
+  },
+  {
+    "id": "q203",
+    "category": "데이터셋 분리",
+    "question": "데이터의 불균형(imbalance) 문제를 해결하기 위해 train_test_split() 함수에서 사용해야 하는 파라미터는 무엇인가요?",
+    "options": [
+      "stratify=y",
+      "balance=True"
+    ],
+    "correctAnswer": 0,
+    "explanation": "stratify=y (타겟 변수) 옵션을 사용하면, 원본 데이터의 클래스 비율을 유지하면서 훈련셋과 테스트셋을 분할합니다.",
+    "code": "X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, stratify=y, random_state=42)",
+    "difficulty": "medium"
+  },
+  {
+    "id": "q204",
+    "category": "스케일링",
+    "question": "테스트 데이터셋(X_test)을 스케일링할 때 scaler.fit_transform(X_test) 대신 scaler.transform(X_test)을 사용하는 주된 이유는 무엇인가요?",
+    "options": [
+      "데이터 누수(Data Leakage) 방지",
+      "계산 속도 향상"
+    ],
+    "correctAnswer": 0,
+    "explanation": "fit() 과정은 훈련 데이터(X_train)의 통계치(평균, 표준편차 등)를 계산하는 과정입니다. 테스트 데이터의 통계치를 사용하면 정보가 누수되어 모델 성능이 과대평가됩니다.",
+    "code": "scaler = StandardScaler()\nX_train_scaled = scaler.fit_transform(X_train)\nX_test_scaled = scaler.transform(X_test)",
+    "difficulty": "hard"
+  },
+  {
+    "id": "q205",
+    "category": "데이터 시각화",
+    "question": "상관관계 히트맵(sns.heatmap)에서 두 변수가 짙은 파란색(어두운 색)으로 표시되었습니다. 이는 무엇을 의미하나요? (단, cmap='viridis' 기준)",
+    "options": [
+      "강한 음의 상관관계 (-1에 가까움)",
+      "강한 양의 상관관계 (+1에 가까움)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "기본 컬러맵(cmap)에서 어두운 색은 낮은 값(-1)을, 밝은 노란색은 높은 값(+1)을 의미합니다. 두 변수는 강한 음의 상관관계를 가집니다.",
+    "code": "sns.heatmap(df.corr(), annot=True, cmap='viridis')",
+    "difficulty": "medium"
+  },
+  {
+    "id": "q206",
+    "category": "그룹화 및 집계",
+    "question": "DataFrame 'df'에서 'Category' 컬럼별로 'Sales' 컬럼의 평균을 구하는 코드입니다. 빈칸에 알맞은 메서드는?\n\ndf.____('Category')['Sales'].mean()",
+    "options": [
+      "groupby",
+      "filter"
+    ],
+    "correctAnswer": 0,
+    "explanation": "groupby() 메서드는 특정 컬럼을 기준으로 데이터를 그룹화하여 집계 함수(mean, sum 등)를 적용할 수 있게 합니다.",
+    "code": "df.groupby('Category')['Sales'].mean()",
+    "difficulty": "easy"
+  },
+  {
+    "id": "q207",
+    "category": "데이터 전처리",
+    "question": "DataFrame 'df'의 'Date' 컬럼(object 타입)을 datetime 타입으로 변환하는 코드입니다. 빈칸에 알맞은 함수는?\n\ndf['Date'] = pd.____(df['Date'])",
+    "options": [
+      "to_datetime",
+      "convert_datetime"
+    ],
+    "correctAnswer": 0,
+    "explanation": "pandas의 to_datetime() 함수는 문자열이나 숫자로 된 날짜 데이터를 datetime 객체로 변환하는 표준 함수입니다.",
+    "code": "df['Date'] = pd.to_datetime(df['Date'])",
+    "difficulty": "easy"
+  },
+  {
+    "id": "q208",
+    "category": "범주형 인코딩",
+    "question": "(시나리오) 'Color' 컬럼(Red, Green, Blue)을 원-핫 인코딩하려고 합니다. 다중공선성(Multicollinearity)을 방지하기 위해 첫 번째 더미 변수를 제거하는 파라미터는 무엇인가요?",
+    "options": [
+      "pd.get_dummies(df, columns=['Color'], drop_first=True)",
+      "pd.get_dummies(df, columns=['Color'], sparse=True)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "drop_first=True 파라미터는 k개의 범주를 k-1개의 더미 변수로 변환하여, 변수 간 완벽한 선형 관계(다중공선성)가 발생하는 것을 방지합니다.",
+    "code": "df_encoded = pd.get_dummies(df, columns=['Color'], drop_first=True)",
+    "difficulty": "medium"
+  },
+  {
+    "id": "q209",
+    "category": "딥러닝 모델 구성",
+    "question": "Keras 모델 학습 시, 검증 손실(val_loss)이 5 에포크(epoch) 동안 개선되지 않으면 학습을 조기 종료하는 콜백(Callback)은 무엇인가요?",
+    "options": [
+      "EarlyStopping(patience=5)",
+      "ModelCheckpoint(patience=5)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "EarlyStopping 콜백은 모니터링하는 지표(기본값 'val_loss')가 'patience' 횟수만큼 개선되지 않으면 학습을 중단시켜 과적합을 방지합니다.",
+    "code": "from tensorflow.keras.callbacks import EarlyStopping\nes = EarlyStopping(monitor='val_loss', patience=5)",
+    "difficulty": "medium"
+  },
+  {
+    "id": "q210",
+    "category": "라이브러리 임포트",
+    "question": "scikit-learn에서 표준화(평균 0, 분산 1)를 위해 사용하는 StandardScaler는 어느 모듈에 있나요?",
+    "options": [
+      "sklearn.preprocessing",
+      "sklearn.model_selection"
+    ],
+    "correctAnswer": 0,
+    "explanation": "StandardScaler, MinMaxScaler 등 데이터 스케일링 관련 도구들은 sklearn.preprocessing 모듈에 포함되어 있습니다.",
+    "code": "from sklearn.preprocessing import StandardScaler",
+    "difficulty": "easy"
+  },
+  {
+    "id": "q211",
+    "category": "데이터 불러오기",
+    "question": "df.describe() 실행 결과, 'Age' 컬럼의 'mean' 값이 30.0이고 '50%'(중앙값) 값이 25.0일 때, 'Age' 컬럼의 데이터 분포는 어떤 형태일 가능성이 높은가요?",
+    "options": [
+      "오른쪽으로 꼬리가 긴 분포 (Positively Skewed)",
+      "왼쪽으로 꼬리가 긴 분포 (Negatively Skewed)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "평균(mean)이 중앙값(median)보다 크면, 데이터는 오른쪽(큰 값)으로 긴 꼬리를 갖는, 즉 오른쪽으로 치우친(정적 편포) 분포일 가능성이 높습니다.",
+    "code": "print(df['Age'].describe())",
+    "difficulty": "medium"
+  },
+  {
+    "id": "q212",
+    "category": "데이터 불러오기",
+    "question": "'data.csv' 파일의 1, 3, 5번 행을 건너뛰고(skip) 데이터를 불러오는 코드입니다. 빈칸에 알맞은 파라미터는?\n\npd.read_csv('data.csv', ____=[1, 3, 5])",
+    "options": [
+      "skiprows",
+      "header"
+    ],
+    "correctAnswer": 0,
+    "explanation": "skiprows 파라미터에 리스트를 전달하면 해당 인덱스(0부터 시작)의 행들을 건너뛰고 데이터를 불러옵니다.",
+    "code": "df = pd.read_csv('data.csv', skiprows=[1, 3, 5])",
+    "difficulty": "medium"
+  },
+  {
+    "id": "q213",
+    "category": "데이터 불러오기",
+    "question": "데이터의 마지막 3행을 확인하는 Pandas 메서드는?",
+    "options": [
+      "df.tail(3)",
+      "df.last(3)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "df.tail(n)은 데이터프레임의 마지막 n개의 행을 반환합니다. 기본값은 5입니다.",
+    "code": "print(df.tail(3))",
+    "difficulty": "easy"
+  },
+  {
+    "id": "q214",
+    "category": "데이터 시각화",
+    "question": "Matplotlib을 사용하여 그래프의 X축 레이블을 'Age'로 설정하는 올바른 코드는?",
+    "options": [
+      "plt.xlabel('Age')",
+      "plt.xlabel = 'Age'"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Matplotlib에서는 plt.xlabel(), plt.ylabel(), plt.title() 등의 함수를 사용하여 그래프의 구성 요소를 설정합니다.",
+    "code": "import matplotlib.pyplot as plt\nplt.plot(data)\nplt.xlabel('Age')",
+    "difficulty": "easy"
+  },
+  {
+    "id": "q215",
+    "category": "데이터 시각화",
+    "question": "Seaborn의 sns.pairplot(df) 함수를 사용하는 주된 목적은 무엇인가요?",
+    "options": [
+      "데이터프레임의 모든 수치형 변수 간의 쌍별(pairwise) 관계와 분포를 한 번에 확인하기 위해",
+      "특정 두 변수 간의 상관관계만 집중적으로 확인하기 위해"
+    ],
+    "correctAnswer": 0,
+    "explanation": "pairplot은 그리드(grid) 형태로 각 수치형 변수 쌍의 산점도(scatterplot)를, 대각선에는 해당 변수의 분포(히스토그램 또는 kde)를 그려줍니다.",
+    "code": "import seaborn as sns\nsns.pairplot(df)",
+    "difficulty": "medium"
+  },
+  {
+    "id": "q216",
+    "category": "데이터 시각화",
+    "question": "sns.boxplot() 실행 결과, 박스(box)의 범위를 벗어난 위치에 여러 개의 점(point)이 찍혀있습니다. 이 점들은 통계적으로 무엇을 의미하나요?",
+    "options": [
+      "이상치 (Outliers)",
+      "평균 (Mean)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "박스플롯에서 점(flier)으로 표시되는 데이터 포인트는 IQR(사분위수 범위)의 1.5배를 벗어난 값들로, 일반적으로 이상치로 간주됩니다.",
+    "code": "sns.boxplot(data=df, y='Age')",
+    "difficulty": "easy"
+  },
+  {
+    "id": "q217",
+    "category": "데이터 시각화",
+    "question": "sns.countplot()으로 그린 그래프를 'plot.png' 파일로 저장하는 코드입니다. 빈칸에 알맞은 함수는?\n\nsns.countplot(data=df, x='col')\nplt.____('plot.png')",
+    "options": [
+      "savefig",
+      "saveplot"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Seaborn은 Matplotlib을 기반으로 하므로, 그래프를 저장할 때는 Matplotlib의 plt.savefig() 함수를 사용합니다.",
+    "code": "import matplotlib.pyplot as plt\nplt.savefig('plot.png')",
+    "difficulty": "easy"
+  },
+  {
+    "id": "q218",
+    "category": "그룹화 및 집계",
+    "question": "(시나리오) 'Category'별로 'Sales'의 평균(mean)과 'Profit'의 합계(sum)를 동시에 계산하는 올바른 코드는?",
+    "options": [
+      "df.groupby('Category').agg({'Sales':'mean', 'Profit':'sum'})",
+      "df.groupby('Category').apply({'Sales':'mean', 'Profit':'sum'})"
+    ],
+    "correctAnswer": 0,
+    "explanation": "agg() (또는 aggregate()) 메서드를 사용하면 딕셔너리 형태로 각 컬럼에 적용할 집계 함수를 유연하게 지정할 수 있습니다.",
+    "code": "result = df.groupby('Category').agg({'Sales':'mean', 'Profit':'sum'})",
+    "difficulty": "hard"
+  },
+  {
+    "id": "q219",
+    "category": "그룹화 및 집계",
+    "question": "그룹화 연산 시, df.groupby('Group')['Value'].transform(lambda x: ...)`은 원본 DataFrame과 동일한 인덱스(길이)를 반환합니다. 이 `transform`의 주된 용도는 무엇인가요?",
+    "options": [
+      "그룹별 통계치(평균, 합계 등)를 원본 데이터의 모든 행에 매핑하기 위해",
+      "그룹별로 단일 요약 통계치를 생성하기 위해"
+    ],
+    "correctAnswer": 0,
+    "explanation": "transform은 그룹별 계산 결과를 원래 DataFrame의 인덱스에 맞춰 반환합니다. (예: 그룹 평균으로 결측치 채우기, 그룹 내 비율 계산)",
+    "code": "df['Group_Mean'] = df.groupby('Group')['Value'].transform('mean')",
+    "difficulty": "hard"
+  },
+  {
+    "id": "q220",
+    "category": "그룹화 및 집계",
+    "question": "df['Category'] 컬럼의 고유값(unique value)별 개수를 세는 코드입니다. 빈칸에 알맞은 메서드는?\n\ndf['Category'].____()",
+    "options": [
+      "value_counts",
+      "unique_counts"
+    ],
+    "correctAnswer": 0,
+    "explanation": "value_counts()는 Pandas Series에서 고유값의 빈도를 계산하는 데 사용되는 핵심 메서드입니다.",
+    "code": "print(df['Category'].value_counts())",
+    "difficulty": "easy"
+  },
+  {
+    "id": "q221",
+    "category": "그룹화 및 집계",
+    "question": "DataFrame `df`의 모든 수치형 컬럼에 대해 평균, 중앙값, 개수를 한 번에 계산하는 메서드는?",
+    "options": [
+      "df.describe()",
+      "df.info()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "df.describe()는 수치형 데이터의 기술 통계량(개수, 평균, 표준편차, 최소값, 4분위수, 최대값)을 요약하여 보여줍니다.",
+    "code": "print(df.describe())",
+    "difficulty": "easy"
+  },
+  {
+    "id": "q222",
+    "category": "데이터 전처리",
+    "question": "(시나리오) 'Name' 컬럼에 \"Kim, Yuna\"처럼 성과 이름이 쉼표(,)로 구분되어 있습니다. 쉼표를 기준으로 분리하여 'Kim'만 가져오는 올바른 코드는?",
+    "options": [
+      "df['Name'].str.split(',').str[0]",
+      "df['Name'].split(',')[0]"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Pandas Series의 문자열 처리를 위해서는 `.str` 접근자를 사용해야 합니다. `.str.split()`은 리스트를 반환하며, `.str[0]`으로 첫 번째 요소에 접근할 수 있습니다.",
+    "code": "df['Last_Name'] = df['Name'].str.split(',').str[0]",
+    "difficulty": "medium"
+  },
+  {
+    "id": "q223",
+    "category": "데이터 전처리",
+    "question": "'Price' 컬럼의 값이 '1,000'처럼 문자열(object)일 때, 쉼표(,)를 제거하는 코드입니다. 빈칸에 알맞은 메서드는?\n\ndf['Price'].str.____(',', '')",
+    "options": [
+      "replace",
+      "remove"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Pandas Series의 문자열을 치환할 때는 `.str.replace()` 메서드를 사용합니다.",
+    "code": "df['Price'] = df['Price'].str.replace(',', '')",
+    "difficulty": "easy"
+  },
+  {
+    "id": "q224",
+    "category": "데이터 전처리",
+    "question": "'Price' 컬럼(object 타입)을 숫자형(int)으로 바꾸는 코드입니다. 빈칸에 알맞은 메서드는?\n\ndf['Price'] = df['Price'].____(int)",
+    "options": [
+      "astype",
+      "to_type"
+    ],
+    "correctAnswer": 0,
+    "explanation": "astype() 메서드는 Pandas Series 또는 DataFrame의 데이터 타입을 변경하는 데 사용됩니다.",
+    "code": "df['Price'] = df['Price'].astype(int)",
+    "difficulty": "easy"
+  },
+  {
+    "id": "q225",
+    "category": "데이터 전처리",
+    "question": "'UserID'나 'Row_ID'처럼 행을 식별하는 고유 ID 컬럼을 모델 학습 전에 제거해야 하는 주된 이유는 무엇인가요?",
+    "options": [
+      "모델이 ID 자체를 유의미한 패턴으로 오해하여 과적합(Overfitting)을 유발할 수 있기 때문",
+      "ID 컬럼은 항상 결측치를 포함하기 때문"
+    ],
+    "correctAnswer": 0,
+    "explanation": "고유 ID 컬럼은 타겟 변수와 아무런 인과 관계가 없지만, 모델이 우연한 패턴을 학습하여 성능이 왜곡될 수 있습니다. (예: ID가 높을수록 긍정적이라 오해)",
+    "code": "df = df.drop(columns=['UserID', 'Row_ID'])",
+    "difficulty": "medium"
+  },
+  {
+    "id": "q226",
+    "category": "데이터 전처리",
+    "question": "DataFrame `df`에서 'col1'과 'col2' 두 개의 컬럼을 삭제(drop)하는 올바른 코드는?",
+    "options": [
+      "df.drop(columns=['col1', 'col2'])",
+      "df.drop(['col1', 'col2'], axis=0)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "컬럼을 삭제할 때는 `columns` 파라미터에 리스트를 명시하거나 `axis=1`을 설정해야 합니다. `axis=0`은 행(row)을 삭제합니다.",
+    "code": "df_new = df.drop(columns=['col1', 'col2'])",
+    "difficulty": "easy"
+  },
+  {
+    "id": "q227",
+    "category": "결측치 처리",
+    "question": "결측치가 *하나라도 있는* '컬럼' 자체를 삭제하는 코드는?",
+    "options": [
+      "df.dropna(axis=1)",
+      "df.dropna(axis=0)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "dropna() 메서드에서 `axis=1`은 컬럼을 대상으로, `axis=0`(기본값)은 행을 대상으로 작동합니다.",
+    "code": "df_clean_cols = df.dropna(axis=1)",
+    "difficulty": "medium"
+  },
+  {
+    "id": "q228",
+    "category": "결측치 처리",
+    "question": "`df.dropna(thresh=5)` 코드는 어떤 '행'을 삭제하는가?",
+    "options": [
+      "결측치가 아닌(Non-NA) 유효한 값의 개수가 5개 미만인 행",
+      "결측치(NA)가 5개 이상인 행"
+    ],
+    "correctAnswer": 0,
+    "explanation": "thresh 파라미터는 '이만큼의 유효한 값이 없으면 삭제하라'는 임계값입니다. 즉, 유효한 값이 5개 미만(4개 이하)인 행이 삭제됩니다.",
+    "code": "df_thresh = df.dropna(thresh=5)",
+    "difficulty": "hard"
+  },
+  {
+    "id": "q229",
+    "category": "결측치 처리",
+    "question": "(시나리오) 주식 가격과 같은 시계열 데이터의 결측치를 처리할 때, `fillna(df.mean())` (평균) 대신 `fillna(method='ffill')` (앞의 값)을 사용하는 주된 이유는?",
+    "options": [
+      "데이터의 시간적 연속성(Temporal Continuity)을 반영하기 위해",
+      "평균보다 계산이 빠르기 때문에"
+    ],
+    "correctAnswer": 0,
+    "explanation": "시계열 데이터는 시간 순서가 중요합니다. 'ffill' (forward fill)은 직전 시점의 값으로 결측치를 채워, 데이터의 연속성을 가정합니다. 평균값은 이러한 순서를 무시합니다.",
+    "code": "df['Price'] = df['Price'].fillna(method='ffill')",
+    "difficulty": "hard"
+  },
+  {
+    "id": "q230",
+    "category": "범주형 인코딩",
+    "question": "(시나리오) '학력' 컬럼('고졸', '대졸', '석사')처럼 순서(Ordinality)가 있는 범주형 데이터에 `LabelEncoder`를 사용하는 주된 이유는?",
+    "options": [
+      "'고졸':0, '대졸':1, '석사':2 처럼 순서 정보를 숫자 크기에 반영할 수 있기 때문",
+      "원-핫 인코딩보다 메모리를 덜 사용하기 때문"
+    ],
+    "correctAnswer": 0,
+    "explanation": "LabelEncoder는 범주를 숫자로 변환합니다. '색상'처럼 순서가 없는 데이터에는 부적절하지만, '등급'이나 '학력'처럼 순서가 명확한 데이터에는 유용할 수 있습니다.",
+    "code": "from sklearn.preprocessing import LabelEncoder\nle = LabelEncoder()",
+    "difficulty": "medium"
+  },
+  {
+    "id": "q231",
+    "category": "범주형 인코딩",
+    "question": "'색상' 컬럼('Red':0, 'Green':1, 'Blue':2)처럼 순서가 없는 명목형(Nominal) 데이터에 `LabelEncoder`를 사용하면 안 되는 주된 이유는?",
+    "options": [
+      "모델이 숫자(0, 1, 2)를 크기나 순서(예: Blue > Green)로 잘못 오해할 수 있기 때문",
+      "변환 속도가 매우 느리기 때문"
+    ],
+    "correctAnswer": 0,
+    "explanation": "선형 모델 등은 0, 1, 2라는 숫자를 순서나 크기로 해석하여 'Blue가 Green보다 2배 중요하다'처럼 잘못된 패턴을 학습할 수 있습니다. 이 경우 원-핫 인코딩이 적합합니다.",
+    "code": "# Bad Practice for Nominal Data\n# df['Color_Encoded'] = LabelEncoder().fit_transform(df['Color'])",
+    "difficulty": "hard"
+  },
+  {
+    "id": "q232",
+    "category": "범주형 인코딩",
+    "question": "`OneHotEncoder` 사용 시, 테스트 데이터에 훈련 데이터에 없던 새로운 범주가 나타날 때 에러 대신 무시(모두 0으로 처리)하는 파라미터는?\n\nOneHotEncoder(____='ignore')",
+    "options": [
+      "handle_unknown",
+      "new_category"
+    ],
+    "correctAnswer": 0,
+    "explanation": "handle_unknown='ignore' 파라미터는 훈련 시 보지 못했던 새로운 범주가 transform 시점에 들어올 경우, 해당 범주를 무시하고 모든 더미 변수를 0으로 채웁니다.",
+    "code": "from sklearn.preprocessing import OneHotEncoder\nohe = OneHotEncoder(handle_unknown='ignore')",
+    "difficulty": "medium"
+  },
+  {
+    "id": "q233",
+    "category": "데이터셋 분리",
+    "question": "`train_test_split` 함수에서 `random_state=42`처럼 특정 숫자를 부여하는 주된 이유는 무엇인가요?",
+    "options": [
+      "실험 결과를 동일하게 재현(Reproducibility)하기 위해",
+      "데이터를 더욱 무작위로 섞기 위해"
+    ],
+    "correctAnswer": 0,
+    "explanation": "random_state는 난수 생성의 시드(seed) 역할을 합니다. 이 값을 고정하면, 코드를 여러 번 실행해도 항상 동일한 방식으로 데이터가 분할됩니다.",
+    "code": "train_test_split(X, y, test_size=0.2, random_state=42)",
+    "difficulty": "easy"
+  },
+  {
+    "id": "q234",
+    "category": "데이터셋 분리",
+    "question": "(시나리오) 시계열 데이터를 `train_test_split`으로 분할할 때 `shuffle=False`로 설정해야 하는 주된 이유는?",
+    "options": [
+      "데이터의 시간 순서를 유지하여 미래의 정보가 과거를 예측하는 것을 막기 위해 (Data Leakage 방지)",
+      "데이터 셔플링에 걸리는 시간을 단축하기 위해"
+    ],
+    "correctAnswer": 0,
+    "explanation": "시계열 데이터는 시간 순서가 중요합니다. 데이터를 섞으면(shuffle=True) 미래의 데이터가 훈련셋에 포함되어, 모델 성능이 비현실적으로 높게 평가됩니다.",
+    "code": "train_test_split(X, y, test_size=0.2, shuffle=False)",
+    "difficulty": "medium"
+  },
+  {
+    "id": "q235",
+    "category": "스케일링",
+    "question": "`StandardScaler` (표준화) 대신 `RobustScaler`를 사용하는 것이 더 유리한 데이터의 특징은 무엇인가요?",
+    "options": [
+      "데이터에 이상치(Outlier)가 많을 때",
+      "데이터가 완벽한 정규분포를 따를 때"
+    ],
+    "correctAnswer": 0,
+    "explanation": "RobustScaler는 평균/표준편차 대신 중앙값/사분위수(IQR)를 사용합니다. 이는 이상치의 영향을 덜 받기 때문에 이상치가 많은 데이터에 더 적합합니다.",
+    "code": "from sklearn.preprocessing import RobustScaler\nscaler = RobustScaler()",
+    "difficulty": "medium"
+  },
+  {
+    "id": "q236",
+    "category": "스케일링",
+    "question": "`MinMaxScaler` (정규화)를 사용했을 때, 스케일링된 값은 기본적으로 어떤 범위를 가지나요?",
+    "options": [
+      "0 ~ 1",
+      "-1 ~ 1"
+    ],
+    "correctAnswer": 0,
+    "explanation": "MinMaxScaler는 모든 특성의 값을 0(최소값)과 1(최대값) 사이의 범위로 비례하게 조정합니다.",
+    "code": "from sklearn.preprocessing import MinMaxScaler\nscaler = MinMaxScaler()",
+    "difficulty": "easy"
+  },
+  {
+    "id": "q237",
+    "category": "스케일링",
+    "question": "의사결정나무(Decision Tree)나 랜덤포레스트(RandomForest) 모델은 스케일링이 필수적이지 않은 이유는 무엇인가요?",
+    "options": [
+      "변수의 스케일(크기)이 아닌 분기점(split point)을 기준으로 작동하기 때문",
+      "모델 내부적으로 자동 스케일링을 수행하기 때문"
+    ],
+    "correctAnswer": 0,
+    "explanation": "트리 기반 모델은 'Age > 30'처럼 특정 값을 기준으로 데이터를 나눕니다. 'Age'가 0~1 사이든 0~100 사이든 분기점만 달라질 뿐 모델 성능에 큰 영향을 주지 않습니다.",
+    "code": "# 스케일링이 필수적이지 않음\nfrom sklearn.tree import DecisionTreeClassifier\nmodel = DecisionTreeClassifier()",
+    "difficulty": "hard"
+  },
+  {
+    "id": "q238",
+    "category": "기본 모델링",
+    "question": "`KNeighborsClassifier`에서 참고할 이웃의 수(K)를 5로 설정하는 파라미터는?\n\nKNeighborsClassifier(____=5)",
+    "options": [
+      "n_neighbors",
+      "k_value"
+    ],
+    "correctAnswer": 0,
+    "explanation": "n_neighbors 파라미터는 K-최근접 이웃 알고리즘에서 K값, 즉 몇 개의 이웃을 참고할지 결정하는 핵심 하이퍼파라미터입니다.",
+    "code": "from sklearn.neighbors import KNeighborsClassifier\nknn = KNeighborsClassifier(n_neighbors=5)",
+    "difficulty": "easy"
+  },
+  {
+    "id": "q239",
+    "category": "기본 모델링",
+    "question": "(시나리오) `LogisticRegression(C=0.1)` 모델을 `C=10`으로 변경했습니다. 'C' 파라미터 값이 커지면 규제(Regularization)의 강도는 어떻게 되나요?",
+    "options": [
+      "규제가 약해진다 (모델이 더 복잡해짐)",
+      "규제가 강해진다 (모델이 더 단순해짐)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "C는 규제 강도의 역수입니다. C 값이 크면(C=10) 규제가 약해져 훈련 데이터에 더 적합(overfit)하려 하고, C 값이 작으면(C=0.1) 규제가 강해집니다.",
+    "code": "# 약한 규제 (C가 큼)\nmodel = LogisticRegression(C=10)\n# 강한 규제 (C가 작음)\nmodel = LogisticRegression(C=0.1)",
+    "difficulty": "hard"
+  },
+  {
+    "id": "q240",
+    "category": "기본 모델링",
+    "question": "`DecisionTreeClassifier`에서 `max_depth=3` 파라미터를 설정하는 주된 목적은 무엇인가요?",
+    "options": [
+      "모델의 과적합(Overfitting)을 방지하고 일반화 성능을 높이기 위해",
+      "모델의 훈련 속도를 높이기 위해"
+    ],
+    "correctAnswer": 0,
+    "explanation": "max_depth는 트리의 최대 깊이를 제한합니다. 이 값을 적절히 설정하면 트리가 너무 복잡해져 훈련 데이터에만 과적합되는 것을 막을 수 있습니다.",
+    "code": "from sklearn.tree import DecisionTreeClassifier\nmodel = DecisionTreeClassifier(max_depth=3)",
+    "difficulty": "medium"
+  },
+  {
+    "id": "q241",
+    "category": "앙상블 모델링",
+    "question": "랜덤포레스트(RandomForest)는 여러 개의 의사결정나무를 어떻게 결합하는 방식인가요?",
+    "options": [
+      "배깅(Bagging): 데이터를 샘플링하여 병렬로 학습시킨 후 결과를 투표(Voting)함",
+      "부스팅(Boosting): 순차적으로 학습하며 이전 트리의 오차에 가중치를 부여함"
+    ],
+    "correctAnswer": 0,
+    "explanation": "랜덤포레스트는 대표적인 배깅(Bootstrap Aggregating) 앙상블 기법입니다. 여러 개의 독립적인 모델을 병렬로 학습시켜 예측을 종합합니다.",
+    "code": "from sklearn.ensemble import RandomForestClassifier",
+    "difficulty": "medium"
+  },
+  {
+    "id": "q242",
+    "category": "앙상블 모델링",
+    "question": "XGBoost, LightGBM과 같은 모델이 '부스팅(Boosting)' 계열로 불리는 주된 이유는?",
+    "options": [
+      "이전 모델(트리)의 오차(Residual)를 보완하는 방식으로 순차적으로 학습하기 때문",
+      "여러 모델을 독립적으로 만든 후 무작위로 결합하기 때문"
+    ],
+    "correctAnswer": 0,
+    "explanation": "부스팅 모델은 약한 학습기(weak learner)를 순차적으로 학습시키며, 이전 단계에서 잘못 예측한 데이터에 가중치를 부여하여 점차 성능을 향상시킵니다.",
+    "code": "from xgboost import XGBClassifier",
+    "difficulty": "medium"
+  },
+  {
+    "id": "q243",
+    "category": "앙상블 모델링",
+    "question": "`RandomForestClassifier`에서 생성할 의사결정나무의 개수를 200개로 설정하는 파라미터는?\n\nRandomForestClassifier(____=200)",
+    "options": [
+      "n_estimators",
+      "n_trees"
+    ],
+    "correctAnswer": 0,
+    "explanation": "n_estimators는 앙상블 모델에서 사용할 기본 모델(트리)의 개수를 지정하는 하이퍼파라미터입니다.",
+    "code": "from sklearn.ensemble import RandomForestClassifier\nrf = RandomForestClassifier(n_estimators=200)",
+    "difficulty": "easy"
+  },
+  {
+    "id": "q244",
+    "category": "모델 성능 평가",
+    "question": "(시나리오) 이진 분류 모델 평가 시, 데이터가 불균형(imbalanced)할 때 정확도(Accuracy)보다 모델의 종합적인 변별력을 더 잘 나타내는 지표는? (1에 가까울수록 좋음)",
+    "options": [
+      "ROC AUC Score",
+      "Confusion Matrix"
+    ],
+    "correctAnswer": 0,
+    "explanation": "불균형 데이터에서는 다수 클래스만 예측해도 정확도가 높게 나옵니다. ROC AUC는 모델이 Positive와 Negative를 얼마나 잘 구별하는지(변별력)를 종합적으로 평가합니다.",
+    "code": "from sklearn.metrics import roc_auc_score\nauc = roc_auc_score(y_test, y_pred_proba)",
+    "difficulty": "medium"
+  },
+  {
+    "id": "q245",
+    "category": "모델 성능 평가",
+    "question": "혼동행렬(Confusion Matrix)에서 실제는 'Positive'인데 모델이 'Negative'로 잘못 예측한 것을 무엇이라고 하는가?",
+    "options": [
+      "FN (False Negative, 2종 오류)",
+      "FP (False Positive, 1종 오류)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "FN (False Negative)는 '틀리게(False) Negative로 예측했다'는 의미이며, 실제로는 Positive였습니다. (예: 실제 환자를 정상으로 오진)",
+    "code": "from sklearn.metrics import confusion_matrix\ncm = confusion_matrix(y_test, y_pred)",
+    "difficulty": "medium"
+  },
+  {
+    "id": "q246",
+    "category": "모델 성능 평가",
+    "question": "회귀 모델 평가 시, `MSE` (Mean Squared Error) 대신 `RMSE` (Root Mean Squared Error)를 사용하는 주된 이유는 무엇인가요?",
+    "options": [
+      "오차를 실제 타겟 변수와 동일한 스케일(단위)로 해석하기 위해",
+      "오차가 큰 값에 대한 패널티를 줄이기 위해"
+    ],
+    "correctAnswer": 0,
+    "explanation": "MSE는 오차를 제곱하기 때문에 단위가 달라집니다 (예: '원' -> '원^2'). RMSE는 여기에 제곱근을 씌워 다시 '원' 단위로 만들어 오차를 직관적으로 해석할 수 있게 합니다.",
+    "code": "from sklearn.metrics import mean_squared_error\nmse = mean_squared_error(y_test, y_pred)\nrmse = np.sqrt(mse)",
+    "difficulty": "hard"
+  },
+  {
+    "id": "q247",
+    "category": "모델 성능 평가",
+    "question": "회귀 모델의 MAE (Mean Absolute Error)를 계산하는 함수를 임포트하는 코드입니다. 빈칸에 알맞은 함수명은?\n\nfrom sklearn.metrics import ____",
+    "options": [
+      "mean_absolute_error",
+      "mae_score"
+    ],
+    "correctAnswer": 0,
+    "explanation": "scikit-learn의 metrics 모듈은 평가 지표 함수를 'mean_squared_error', 'mean_absolute_error' 등 풀네임으로 제공합니다.",
+    "code": "from sklearn.metrics import mean_absolute_error",
+    "difficulty": "easy"
+  },
+  {
+    "id": "q248",
+    "category": "딥러닝 모델 구성",
+    "question": "(시나리오) 3개 이상의 클래스(예: 개, 고양이, 새)를 분류하는 딥러닝 모델의 마지막 출력 레이어(Dense)에 사용해야 하는 활성화 함수(activation)는?",
+    "options": [
+      "softmax",
+      "sigmoid"
+    ],
+    "correctAnswer": 0,
+    "explanation": "softmax 함수는 다중 클래스 분류에서 각 클래스에 속할 확률을 계산하며, 모든 확률의 합이 1이 되도록 합니다. sigmoid는 이진 분류(0 또는 1)에 사용됩니다.",
+    "code": "model.add(keras.layers.Dense(3, activation='softmax'))",
+    "difficulty": "medium"
+  },
+  {
+    "id": "q249",
+    "category": "딥러닝 평가 및 시각화",
+    "question": "Keras의 `model.summary()`를 실행했을 때 출력되는 'Total params'가 의미하는 것은 무엇인가요?",
+    "options": [
+      "모델이 학습 과정에서 업데이트해야 할 총 가중치(Weight)와 편향(Bias)의 개수",
+      "모델이 학습하는 데 사용된 총 데이터 샘플의 개수"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Total parameters는 모델의 복잡도를 나타내는 지표로, 이 파라미터들이 훈련 데이터를 통해 학습(업데이트)됩니다.",
+    "code": "model.summary()",
+    "difficulty": "medium"
+  },
+  {
+    "id": "q250",
+    "category": "딥러닝 모델 구성",
+    "question": "Keras 모델 컴파일 시, 이진 분류(binary classification) 문제에서 일반적으로 사용되는 손실 함수(loss)는?\n\nmodel.compile(optimizer='adam', loss='____')",
+    "options": [
+      "binary_crossentropy",
+      "categorical_crossentropy"
+    ],
+    "correctAnswer": 0,
+    "explanation": "이진 분류(0 또는 1)에는 'binary_crossentropy'를, 3개 이상의 클래스를 분류(예: one-hot 인코딩된 타겟)할 때는 'categorical_crossentropy'를 사용합니다.",
+    "code": "model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])",
+    "difficulty": "easy"
   }
 ]

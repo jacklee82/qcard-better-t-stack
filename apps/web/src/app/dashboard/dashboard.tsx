@@ -20,6 +20,7 @@ export default function Dashboard({
 	const { data: stats, isLoading: statsLoading } = trpc.stats.getOverview.useQuery();
 	const { data: categoryStats = [], isLoading: categoryLoading } = trpc.stats.getByCategory.useQuery();
 	const { data: recentActivity = [], isLoading: activityLoading } = trpc.stats.getRecentActivity.useQuery({ limit: 5 });
+	const { data: totalCount = 0 } = trpc.question.getCount.useQuery();
 
 	if (statsLoading) {
 		return (
@@ -58,7 +59,7 @@ export default function Dashboard({
 					title="학습한 문제"
 					value={stats?.totalQuestions || 0}
 					icon={BookOpen}
-					description="전체 200문제 중"
+					description={`전체 ${totalCount}문제 중`}
 				/>
 				<StreakCounter />
 			</div>

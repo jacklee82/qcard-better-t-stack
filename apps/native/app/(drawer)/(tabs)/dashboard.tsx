@@ -15,6 +15,7 @@ export default function DashboardScreen() {
 	const { data: recentActivity = [], isLoading: activityLoading } = 
 		trpc.stats.getRecentActivity.useQuery({ limit: 5 });
 	const { data: categoryStats = [] } = trpc.stats.getByCategory.useQuery();
+	const { data: totalCount = 0 } = trpc.question.getCount.useQuery();
 	
 	// FIX-0025: GoalCard API 실패 시에도 대시보드 표시
 	const goalQuery = trpc.goal.get.useQuery();
@@ -81,7 +82,7 @@ export default function DashboardScreen() {
 								{safeStats.totalQuestions || 0}
 							</Text>
 							<Text className="text-xs text-muted-foreground mt-1">
-								전체 200문제 중
+								전체 {totalCount}문제 중
 							</Text>
 						</View>
 					</View>
