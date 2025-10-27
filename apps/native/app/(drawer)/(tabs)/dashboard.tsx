@@ -112,7 +112,7 @@ export default function DashboardScreen() {
 					</Text>
 					<View className="gap-3">
 						<TouchableOpacity
-							onPress={() => router.push("/(drawer)/(tabs)/study")}
+							onPress={() => router.push("/(study)/random" as any)}
 							className="p-4 bg-primary rounded-lg flex-row items-center"
 						>
 							<View className="w-10 h-10 bg-primary-foreground/20 rounded-full items-center justify-center mr-3">
@@ -130,7 +130,7 @@ export default function DashboardScreen() {
 						</TouchableOpacity>
 
 						<TouchableOpacity
-							onPress={() => router.push("/(drawer)/(tabs)/study")}
+							onPress={() => router.push("/(study)/review" as any)}
 							className="p-4 bg-card rounded-lg border border-border flex-row items-center"
 						>
 							<View className="w-10 h-10 bg-amber-500/20 rounded-full items-center justify-center mr-3">
