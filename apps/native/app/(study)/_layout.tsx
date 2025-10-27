@@ -36,6 +36,13 @@ export default function StudyLayout() {
 				}}
 			/>
 			<Stack.Screen
+				name="[category]"
+				options={{
+					title: "카테고리 학습",
+					headerBackVisible: true,
+				}}
+			/>
+			<Stack.Screen
 				name="review"
 				options={{
 					title: "오답 복습",

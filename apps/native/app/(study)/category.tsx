@@ -60,8 +60,11 @@ export default function CategorySelectionScreen() {
 							<TouchableOpacity
 								key={category}
 								onPress={() => {
-									// TODO: 카테고리별 학습 화면으로 이동
-									// router.push(`/study/category/${category}`);
+									// ✅ 카테고리별 학습 화면으로 이동
+									router.push({
+										pathname: '/(study)/[category]',
+										params: { category: category }
+									});
 								}}
 								className="p-4 bg-card rounded-lg border border-border"
 							>
