@@ -7,21 +7,15 @@
     "development": {
       "developmentClient": true,
       "distribution": "internal",
-      "android": {
-        "projectDir": "apps/native"
-      }
+      "projectDir": "apps/native"
     },
     "preview": {
       "distribution": "internal",
-      "android": {
-        "projectDir": "apps/native"
-      }
+      "projectDir": "apps/native"
     },
     "production": {
       "autoIncrement": true,
-      "android": {
-        "projectDir": "apps/native"
-      }
+      "projectDir": "apps/native"
     }
   },
   "submit": {
