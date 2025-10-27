@@ -48,19 +48,14 @@ export default function SequentialStudyPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // 답안 제출 (FIX-0019: 서버 응답의 isCorrect 사용)
+  // 답안 제출 (Optimistic UI: UI 즉시 업데이트)
   const submitAnswer = trpc.progress.submit.useMutation({
-    onSuccess: (data) => {
-      if (data.isCorrect) {
-        setCorrectCount(prev => prev + 1)
-        toast.success('정답입니다! 🎉')
-      } else {
-        toast.error('틀렸습니다 😢')
-      }
-      setShowAnswer(true)
+    onSuccess: () => {
+      // ✅ UI는 이미 handleSubmit에서 즉시 업데이트됨
+      console.log("진행률 저장 완료");
     },
     onError: (error) => {
-      toast.error('제출 중 오류가 발생했습니다: ' + error.message)
+      console.error("진행률 저장 실패:", error);
     }
   })
 
@@ -71,10 +66,22 @@ export default function SequentialStudyPage() {
     }
 
     const currentQuestion = questions[currentIndex]
+    const isCorrect = selectedAnswer === currentQuestion.correctAnswer
+
+    // ✅ 즉시 UI 업데이트 (Optimistic UI)
+    if (isCorrect) {
+      setCorrectCount(prev => prev + 1)
+      toast.success('정답입니다! 🎉')
+    } else {
+      toast.error('틀렸습니다 😢')
+    }
+    setShowAnswer(true)
+
+    // ✅ 백그라운드 서버 전송
     submitAnswer.mutate({
       questionId: currentQuestion.id,
       selectedAnswer,
-      isCorrect: selectedAnswer === currentQuestion.correctAnswer,
+      isCorrect,
     })
   }
 

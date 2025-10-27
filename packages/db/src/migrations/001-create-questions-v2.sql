@@ -133,3 +133,4 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON question_sessions TO app_user;
 GRANT SELECT, INSERT, UPDATE, DELETE ON answer_submissions TO app_user;
 GRANT EXECUTE ON FUNCTION cleanup_expired_sessions() TO app_user;
 GRANT EXECUTE ON FUNCTION validate_answer(TEXT, INTEGER) TO app_user;
+

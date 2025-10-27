@@ -58,22 +58,14 @@ export default function RandomStudyScreen() {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
-	// 답안 제출
+	// 답안 제출 (Optimistic UI: UI 즉시 업데이트)
 	const submitAnswer = trpc.progress.submit.useMutation({
 		onSuccess: () => {
-			if (selectedAnswer === questions?.[currentIndex].correctAnswer) {
-				setCorrectCount((prev) => prev + 1);
-				showToast.success("정답입니다! 🎉");
-			} else {
-				showToast.error("틀렸습니다 😢");
-			}
-			setShowAnswer(true);
-			// 자동 진행 제거 - 사용자가 "다음 문제" 버튼을 눌러야 함
+			// ✅ UI는 이미 handleSelect에서 즉시 업데이트됨
+			console.log("진행률 저장 완료");
 		},
 		onError: (error) => {
-			showToast.error("제출 중 오류가 발생했습니다: " + error.message);
-			// 오류 시에도 결과 표시만 하고 자동 진행 제거
-			setShowAnswer(true);
+			console.error("진행률 저장 실패:", error);
 		},
 	});
 
@@ -101,18 +93,17 @@ export default function RandomStudyScreen() {
 			const currentQuestion = questions[currentIndex];
 			const isCorrect = index === currentQuestion.correctAnswer;
 			
-			if (BYPASS_AUTH) {
-				// 로컬 채점 모드
-				if (isCorrect) {
-					setCorrectCount((prev) => prev + 1);
-					showToast.success("정답입니다! 🎉");
-				} else {
-					showToast.error("틀렸습니다 😢");
-				}
-				setShowAnswer(true);
-				// 자동 진행 제거 - 사용자가 "다음 문제" 버튼을 눌러야 함
+			// ✅ 즉시 UI 업데이트 (Optimistic UI)
+			if (isCorrect) {
+				setCorrectCount((prev) => prev + 1);
+				showToast.success("정답입니다! 🎉");
 			} else {
-				// 서버 제출 모드
+				showToast.error("틀렸습니다 😢");
+			}
+			setShowAnswer(true);
+			
+			// ✅ 백그라운드 서버 전송 (BYPASS 시 스킵)
+			if (!BYPASS_AUTH) {
 				submitAnswer.mutate({
 					questionId: currentQuestion.id,
 					selectedAnswer: index,

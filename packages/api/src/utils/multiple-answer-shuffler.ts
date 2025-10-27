@@ -191,3 +191,4 @@ export function getQuestionType(question: Question): 'single' | 'multiple' {
   return correctAnswers.length > 1 ? 'multiple' : 'single';
 }
 
+

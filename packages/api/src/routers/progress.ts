@@ -77,10 +77,12 @@ export const progressRouter = router({
 				});
 			}
 
-			// 사용자 통계 업데이트
-			await updateUserStats(userId);
+			// ✅ 통계 업데이트를 백그라운드로 실행 (응답 지연 없음)
+			updateUserStats(userId).catch((err) => {
+				console.error(`[통계 업데이트 실패] User: ${userId}`, err);
+			});
 
-			// FIX-0019: isCorrect를 응답에 포함하여 클라이언트에서 활용
+			// ✅ 즉시 응답 반환
 			return { 
 				success: true,
 				isCorrect: input.isCorrect,

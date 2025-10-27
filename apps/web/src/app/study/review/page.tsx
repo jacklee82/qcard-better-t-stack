@@ -65,19 +65,13 @@ export default function ReviewStudyPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [questions.length])
 
-  // 답안 제출
+  // 답안 제출 (Optimistic UI: UI 즉시 업데이트)
   const submitAnswer = trpc.progress.submit.useMutation({
     onSuccess: () => {
-      if (selectedAnswer === questions?.[currentIndex].correctAnswer) {
-        setCorrectCount(prev => prev + 1)
-        toast.success('정답입니다! 이제 정답을 아셨네요! 🎉')
-      } else {
-        toast.error('다시 한번 복습이 필요해요 😢')
-      }
-      setShowAnswer(true)
+      console.log("진행률 저장 완료");
     },
     onError: (error) => {
-      toast.error('제출 중 오류가 발생했습니다: ' + error.message)
+      console.error("진행률 저장 실패:", error);
     }
   })
 
@@ -88,10 +82,22 @@ export default function ReviewStudyPage() {
     }
 
     const currentQuestion = questions[currentIndex]
+    const isCorrect = selectedAnswer === currentQuestion.correctAnswer
+
+    // ✅ 즉시 UI 업데이트 (Optimistic UI)
+    if (isCorrect) {
+      setCorrectCount(prev => prev + 1)
+      toast.success('정답입니다! 이제 정답을 아셨네요! 🎉')
+    } else {
+      toast.error('다시 한번 복습이 필요해요 😢')
+    }
+    setShowAnswer(true)
+
+    // ✅ 백그라운드 서버 전송
     submitAnswer.mutate({
       questionId: currentQuestion.id,
       selectedAnswer,
-      isCorrect: selectedAnswer === currentQuestion.correctAnswer,
+      isCorrect,
     })
   }
 

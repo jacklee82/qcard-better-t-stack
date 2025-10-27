@@ -76,3 +76,4 @@ export const answerSubmissions = pgTable("answer_submissions", {
 export type QuestionV2 = typeof questionsV2.$inferSelect;
 export type QuestionSession = typeof questionSessions.$inferSelect;
 export type AnswerSubmission = typeof answerSubmissions.$inferSelect;
+

@@ -59,3 +59,4 @@ export function isCorrectAnswer(
 ): boolean {
   return selectedAnswer === shuffledQuestion.correctAnswer;
 }
+

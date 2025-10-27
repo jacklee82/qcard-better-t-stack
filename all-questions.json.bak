@@ -17,10 +17,10 @@
     "category": "라이브러리 임포트",
     "question": "Pandas 라이브러리를 임포트할 때 관례적으로 사용하는 별칭은?",
     "options": [
-      "pandas",
-      "pd"
+      "pd",
+      "pandas"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "Pandas는 관례적으로 'pd'로 임포트합니다. 이는 데이터 분석에서 가장 널리 사용되는 별칭입니다.",
     "code": "import pandas as pd",
     "difficulty": "easy"
@@ -30,10 +30,10 @@
     "category": "라이브러리 임포트",
     "question": "Matplotlib의 pyplot 모듈을 임포트할 때 관례적으로 사용하는 별칭은?",
     "options": [
-      "pyplot",
-      "plt"
+      "plt",
+      "pyplot"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "Matplotlib.pyplot은 관례적으로 'plt'로 임포트합니다. 이는 시각화 작업에서 표준으로 사용됩니다.",
     "code": "import matplotlib.pyplot as plt",
     "difficulty": "easy"
@@ -43,10 +43,10 @@
     "category": "라이브러리 임포트",
     "question": "Seaborn 라이브러리를 임포트할 때 관례적으로 사용하는 별칭은?",
     "options": [
-      "seaborn",
-      "sns"
+      "sns",
+      "seaborn"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "Seaborn은 관례적으로 'sns'로 임포트합니다. 이는 통계적 시각화에서 널리 사용되는 별칭입니다.",
     "code": "import seaborn as sns",
     "difficulty": "easy"
@@ -95,10 +95,10 @@
     "category": "라이브러리 임포트",
     "question": "sklearn에서 StandardScaler를 임포트하는 올바른 방법은?",
     "options": [
-      "from sklearn import StandardScaler",
-      "from sklearn.preprocessing import StandardScaler"
+      "from sklearn.preprocessing import StandardScaler",
+      "from sklearn import StandardScaler"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "StandardScaler는 sklearn.preprocessing 모듈에 있습니다. 전처리 관련 기능은 preprocessing 하위 모듈에 위치합니다.",
     "code": "from sklearn.preprocessing import StandardScaler",
     "difficulty": "medium"
@@ -108,10 +108,10 @@
     "category": "라이브러리 임포트",
     "question": "sklearn에서 accuracy_score를 임포트하는 올바른 방법은?",
     "options": [
-      "from sklearn import accuracy_score",
-      "from sklearn.metrics import accuracy_score"
+      "from sklearn.metrics import accuracy_score",
+      "from sklearn import accuracy_score"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "accuracy_score는 sklearn.metrics 모듈에 있습니다. 성능 평가 관련 함수들은 metrics 하위 모듈에 위치합니다.",
     "code": "from sklearn.metrics import accuracy_score",
     "difficulty": "medium"
@@ -121,10 +121,10 @@
     "category": "라이브러리 임포트",
     "question": "TensorFlow에서 Keras를 임포트하는 올바른 방법은?",
     "options": [
-      "import keras",
-      "from tensorflow import keras"
+      "from tensorflow import keras",
+      "import keras"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "TensorFlow 2.x부터는 Keras가 TensorFlow에 통합되었습니다. 'from tensorflow import keras'가 올바른 방법입니다.",
     "code": "from tensorflow import keras",
     "difficulty": "medium"
@@ -134,10 +134,10 @@
     "category": "라이브러리 임포트",
     "question": "sklearn에서 RandomForestClassifier를 임포트하는 올바른 방법은?",
     "options": [
-      "from sklearn import RandomForestClassifier",
-      "from sklearn.ensemble import RandomForestClassifier"
+      "from sklearn.ensemble import RandomForestClassifier",
+      "from sklearn import RandomForestClassifier"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "RandomForestClassifier는 sklearn.ensemble 모듈에 있습니다. 앙상블 모델들은 ensemble 하위 모듈에 위치합니다.",
     "code": "from sklearn.ensemble import RandomForestClassifier",
     "difficulty": "medium"
@@ -160,10 +160,10 @@
     "category": "라이브러리 임포트",
     "question": "sklearn에서 KNeighborsClassifier를 임포트하는 올바른 방법은?",
     "options": [
-      "from sklearn import KNeighborsClassifier",
-      "from sklearn.neighbors import KNeighborsClassifier"
+      "from sklearn.neighbors import KNeighborsClassifier",
+      "from sklearn import KNeighborsClassifier"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "KNeighborsClassifier는 sklearn.neighbors 모듈에 있습니다. 거리 기반 알고리즘들은 neighbors 하위 모듈에 위치합니다.",
     "code": "from sklearn.neighbors import KNeighborsClassifier",
     "difficulty": "medium"
@@ -173,10 +173,10 @@
     "category": "라이브러리 임포트",
     "question": "sklearn에서 DecisionTreeClassifier를 임포트하는 올바른 방법은?",
     "options": [
-      "from sklearn import DecisionTreeClassifier",
-      "from sklearn.tree import DecisionTreeClassifier"
+      "from sklearn.tree import DecisionTreeClassifier",
+      "from sklearn import DecisionTreeClassifier"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "DecisionTreeClassifier는 sklearn.tree 모듈에 있습니다. 트리 기반 알고리즘들은 tree 하위 모듈에 위치합니다.",
     "code": "from sklearn.tree import DecisionTreeClassifier",
     "difficulty": "medium"
@@ -212,10 +212,10 @@
     "category": "데이터 불러오기",
     "question": "Excel 파일을 읽을 때 필요한 엔진은?",
     "options": [
-      "xlrd",
-      "openpyxl"
+      "openpyxl",
+      "xlrd"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "xlsx 파일을 읽을 때는 openpyxl 엔진이 필요합니다. xlrd는 구형 xls 파일용입니다.",
     "code": "df = pd.read_excel('file.xlsx', engine='openpyxl')",
     "difficulty": "medium"
@@ -251,10 +251,10 @@
     "category": "데이터 불러오기",
     "question": "데이터의 정보(타입, 결측치 등)를 확인하는 pandas 메서드는?",
     "options": [
-      "df.describe()",
-      "df.info()"
+      "df.info()",
+      "df.describe()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "df.info()는 데이터 타입, 결측치 개수, 메모리 사용량 등을 보여줍니다. df.describe()는 통계 요약입니다.",
     "code": "print(df.info())",
     "difficulty": "easy"
@@ -290,10 +290,10 @@
     "category": "데이터 불러오기",
     "question": "대용량 파일을 분할해서 읽을 때 사용하는 파라미터는?",
     "options": [
-      "batch_size",
-      "chunksize"
+      "chunksize",
+      "batch_size"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "chunksize 파라미터를 사용하면 파일을 청크 단위로 나누어 읽을 수 있습니다. 메모리 효율적입니다.",
     "code": "for chunk in pd.read_csv('large.csv', chunksize=1000):",
     "difficulty": "hard"
@@ -303,10 +303,10 @@
     "category": "데이터 불러오기",
     "question": "특정 컬럼만 읽을 때 사용하는 파라미터는?",
     "options": [
-      "columns",
-      "usecols"
+      "usecols",
+      "columns"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "usecols 파라미터로 읽을 컬럼을 지정할 수 있습니다. 메모리 사용량을 줄일 수 있습니다.",
     "code": "df = pd.read_csv('file.csv', usecols=['col1', 'col2'])",
     "difficulty": "medium"
@@ -329,10 +329,10 @@
     "category": "데이터 불러오기",
     "question": "Excel 파일에서 특정 시트를 읽을 때 사용하는 파라미터는?",
     "options": [
-      "sheet",
-      "sheet_name"
+      "sheet_name",
+      "sheet"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "sheet_name 파라미터로 읽을 시트를 지정할 수 있습니다. 시트 번호나 이름을 사용할 수 있습니다.",
     "code": "df = pd.read_excel('file.xlsx', sheet_name=0)",
     "difficulty": "medium"
@@ -342,10 +342,10 @@
     "category": "데이터 불러오기",
     "question": "데이터 타입을 강제로 지정할 때 사용하는 파라미터는?",
     "options": [
-      "type",
-      "dtype"
+      "dtype",
+      "type"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "dtype 파라미터로 컬럼별 데이터 타입을 딕셔너리 형태로 지정할 수 있습니다.",
     "code": "df = pd.read_csv('file.csv', dtype={'col1': str, 'col2': int})",
     "difficulty": "medium"
@@ -355,10 +355,10 @@
     "category": "데이터 불러오기",
     "question": "구분자가 탭인 파일을 읽을 때 사용하는 파라미터는?",
     "options": [
-      "delimiter='\\t'",
-      "sep='\\t'"
+      "sep='\\t'",
+      "delimiter='\\t'"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "sep 파라미터로 구분자를 지정할 수 있습니다. 탭은 '\\t'로 표현합니다.",
     "code": "df = pd.read_csv('file.tsv', sep='\\t')",
     "difficulty": "medium"
@@ -446,10 +446,10 @@
     "category": "데이터 시각화",
     "question": "그래프를 출력하기 위해 반드시 호출해야 하는 matplotlib 함수는?",
     "options": [
-      "plt.display()",
-      "plt.show()"
+      "plt.show()",
+      "plt.display()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "plt.show()는 그래프를 화면에 출력하는 함수입니다. plt.display()는 존재하지 않는 함수입니다.",
     "code": "plt.show()",
     "difficulty": "easy"
@@ -537,10 +537,10 @@
     "category": "데이터 시각화",
     "question": "바이올린플롯을 그리는 seaborn 함수는?",
     "options": [
-      "sns.violin()",
-      "sns.violinplot()"
+      "sns.violinplot()",
+      "sns.violin()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "sns.violinplot()은 바이올린플롯을 그리는 함수입니다. sns.violin()은 존재하지 않는 함수입니다.",
     "code": "sns.violinplot(data=df, x='category', y='value')",
     "difficulty": "medium"
@@ -550,10 +550,10 @@
     "category": "데이터 시각화",
     "question": "조인트플롯을 그리는 seaborn 함수는?",
     "options": [
-      "sns.joint()",
-      "sns.jointplot()"
+      "sns.jointplot()",
+      "sns.joint()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "sns.jointplot()은 두 변수의 관계를 조인트플롯으로 보여주는 함수입니다. sns.joint()는 존재하지 않는 함수입니다.",
     "code": "sns.jointplot(data=df, x='x_var', y='y_var')",
     "difficulty": "medium"
@@ -563,10 +563,10 @@
     "category": "데이터 시각화",
     "question": "상관관계를 계산하는 pandas 메서드는?",
     "options": [
-      "df.correlation()",
-      "df.corr()"
+      "df.corr()",
+      "df.correlation()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "df.corr()은 상관계수 행렬을 계산하는 메서드입니다. df.correlation()은 존재하지 않는 메서드입니다.",
     "code": "corr_matrix = df.corr()",
     "difficulty": "easy"
@@ -576,10 +576,10 @@
     "category": "데이터 시각화",
     "question": "서브플롯을 생성하는 matplotlib 함수는?",
     "options": [
-      "plt.sub()",
-      "plt.subplot()"
+      "plt.subplot()",
+      "plt.sub()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "plt.subplot()은 서브플롯을 생성하는 함수입니다. plt.sub()는 존재하지 않는 함수입니다.",
     "code": "plt.subplot(2, 2, 1)",
     "difficulty": "medium"
@@ -589,10 +589,10 @@
     "category": "그룹화 및 집계",
     "question": "데이터를 그룹별로 집계하는 pandas 메서드는?",
     "options": [
-      "df.group()",
-      "df.groupby()"
+      "df.groupby()",
+      "df.group()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "df.groupby()는 데이터를 그룹별로 나누어 집계하는 메서드입니다. df.group()은 존재하지 않는 메서드입니다.",
     "code": "df.groupby('category').sum()",
     "difficulty": "easy"
@@ -602,10 +602,10 @@
     "category": "그룹화 및 집계",
     "question": "그룹화 후 인덱스를 컬럼으로 변환하는 메서드는?",
     "options": [
-      "reset()",
-      "reset_index()"
+      "reset_index()",
+      "reset()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "reset_index()는 그룹화 후 인덱스를 컬럼으로 변환합니다. reset()은 존재하지 않는 메서드입니다.",
     "code": "result = df.groupby('category').sum().reset_index()",
     "difficulty": "medium"
@@ -615,10 +615,10 @@
     "category": "그룹화 및 집계",
     "question": "여러 집계 함수를 동시에 적용하는 메서드는?",
     "options": [
-      "aggregate()",
-      "agg()"
+      "agg()",
+      "aggregate()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "agg()는 여러 집계 함수를 동시에 적용하는 메서드입니다. aggregate()도 동일하지만 agg()가 더 간단합니다.",
     "code": "df.groupby('category').agg({'value': ['mean', 'sum']})",
     "difficulty": "medium"
@@ -641,10 +641,10 @@
     "category": "그룹화 및 집계",
     "question": "값의 빈도를 계산하는 메서드는?",
     "options": [
-      "freq()",
-      "value_counts()"
+      "value_counts()",
+      "freq()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "value_counts()는 값의 빈도를 계산하는 메서드입니다. freq()는 존재하지 않는 메서드입니다.",
     "code": "df['category'].value_counts()",
     "difficulty": "easy"
@@ -654,10 +654,10 @@
     "category": "그룹화 및 집계",
     "question": "상대적 비율을 계산할 때 사용하는 파라미터는?",
     "options": [
-      "ratio=True",
-      "normalize=True"
+      "normalize=True",
+      "ratio=True"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "value_counts(normalize=True)로 상대적 비율을 계산할 수 있습니다. ratio=True는 존재하지 않는 파라미터입니다.",
     "code": "df['category'].value_counts(normalize=True)",
     "difficulty": "medium"
@@ -667,10 +667,10 @@
     "category": "그룹화 및 집계",
     "question": "데이터를 정렬하는 메서드는?",
     "options": [
-      "sort()",
-      "sort_values()"
+      "sort_values()",
+      "sort()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "sort_values()는 데이터를 정렬하는 메서드입니다. sort()는 존재하지 않는 메서드입니다.",
     "code": "df.sort_values('value', ascending=False)",
     "difficulty": "easy"
@@ -680,10 +680,10 @@
     "category": "그룹화 및 집계",
     "question": "상위 N개를 선택하는 메서드는?",
     "options": [
-      "top()",
-      "head()"
+      "head()",
+      "top()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "head()는 상위 N개를 선택하는 메서드입니다. top()은 존재하지 않는 메서드입니다.",
     "code": "df.head(10)",
     "difficulty": "easy"
@@ -732,10 +732,10 @@
     "category": "데이터 전처리",
     "question": "datetime에서 연도를 추출하는 속성은?",
     "options": [
-      "dt.Year",
-      "dt.year"
+      "dt.year",
+      "dt.Year"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "dt.year는 datetime에서 연도를 추출하는 속성입니다. dt.Year는 존재하지 않는 속성입니다.",
     "code": "df['year'] = df['date'].dt.year",
     "difficulty": "easy"
@@ -758,10 +758,10 @@
     "category": "데이터 전처리",
     "question": "datetime에서 요일을 추출하는 속성은?",
     "options": [
-      "dt.weekday",
-      "dt.dayofweek"
+      "dt.dayofweek",
+      "dt.weekday"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "dt.dayofweek는 요일을 숫자로 반환합니다 (0=월요일). dt.weekday도 동일하지만 dt.dayofweek가 더 일반적입니다.",
     "code": "df['weekday'] = df['date'].dt.dayofweek",
     "difficulty": "medium"
@@ -771,10 +771,10 @@
     "category": "데이터 전처리",
     "question": "문자열을 대문자로 변환하는 메서드는?",
     "options": [
-      "str.uppercase()",
-      "str.upper()"
+      "str.upper()",
+      "str.uppercase()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "str.upper()는 문자열을 대문자로 변환하는 메서드입니다. str.uppercase()는 존재하지 않는 메서드입니다.",
     "code": "df['name_upper'] = df['name'].str.upper()",
     "difficulty": "easy"
@@ -862,10 +862,10 @@
     "category": "결측치 처리",
     "question": "결측치를 중앙값으로 채우는 메서드는?",
     "options": [
-      "fillna(df.median())",
-      "fillna(median)"
+      "fillna(median)",
+      "fillna(df.median())"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "explanation": "fillna(df.median())은 결측치를 중앙값으로 채웁니다. fillna(median)은 median이 정의되지 않은 변수입니다.",
     "code": "df['value'] = df['value'].fillna(df['value'].median())",
     "difficulty": "medium"
@@ -875,10 +875,10 @@
     "category": "결측치 처리",
     "question": "결측치를 평균값으로 채우는 메서드는?",
     "options": [
-      "fillna(mean)",
-      "fillna(df.mean())"
+      "fillna(df.mean())",
+      "fillna(mean)"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "fillna(df.mean())은 결측치를 평균값으로 채웁니다. fillna(mean)은 mean이 정의되지 않은 변수입니다.",
     "code": "df['value'] = df['value'].fillna(df['value'].mean())",
     "difficulty": "medium"
@@ -888,10 +888,10 @@
     "category": "결측치 처리",
     "question": "결측치를 최빈값으로 채우는 메서드는?",
     "options": [
-      "fillna(df.mode())",
-      "fillna(df.mode().iloc[0])"
+      "fillna(df.mode().iloc[0])",
+      "fillna(df.mode())"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "fillna(df.mode().iloc[0])은 결측치를 최빈값으로 채웁니다. mode()는 Series를 반환하므로 iloc[0]으로 첫 번째 값을 가져와야 합니다.",
     "code": "df['category'] = df['category'].fillna(df['category'].mode().iloc[0])",
     "difficulty": "hard"
@@ -901,10 +901,10 @@
     "category": "결측치 처리",
     "question": "결측치가 있는 행을 삭제하는 메서드는?",
     "options": [
-      "remove_na()",
-      "dropna()"
+      "dropna()",
+      "remove_na()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "dropna()는 결측치가 있는 행을 삭제하는 메서드입니다. remove_na()는 존재하지 않는 메서드입니다.",
     "code": "df_clean = df.dropna()",
     "difficulty": "easy"
@@ -914,10 +914,10 @@
     "category": "결측치 처리",
     "question": "특정 컬럼의 결측치가 있는 행만 삭제하는 파라미터는?",
     "options": [
-      "columns",
-      "subset"
+      "subset",
+      "columns"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "dropna(subset=['column'])은 특정 컬럼의 결측치가 있는 행만 삭제합니다. columns는 존재하지 않는 파라미터입니다.",
     "code": "df_clean = df.dropna(subset=['important_column'])",
     "difficulty": "medium"
@@ -953,10 +953,10 @@
     "category": "결측치 처리",
     "question": "결측치를 보간하는 메서드는?",
     "options": [
-      "interpol()",
-      "interpolate()"
+      "interpolate()",
+      "interpol()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "interpolate()는 결측치를 보간하는 메서드입니다. interpol()는 존재하지 않는 메서드입니다.",
     "code": "df['value'] = df['value'].interpolate()",
     "difficulty": "hard"
@@ -979,10 +979,10 @@
     "category": "범주형 인코딩",
     "question": "범주형 데이터를 원-핫 인코딩하는 pandas 함수는?",
     "options": [
-      "pd.onehot()",
-      "pd.get_dummies()"
+      "pd.get_dummies()",
+      "pd.onehot()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "pd.get_dummies()는 범주형 데이터를 원-핫 인코딩하는 함수입니다. pd.onehot()는 존재하지 않는 함수입니다.",
     "code": "df_encoded = pd.get_dummies(df, columns=['category'])",
     "difficulty": "easy"
@@ -1005,10 +1005,10 @@
     "category": "범주형 인코딩",
     "question": "라벨 인코딩을 수행하는 sklearn 클래스는?",
     "options": [
-      "Label",
-      "LabelEncoder"
+      "LabelEncoder",
+      "Label"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "LabelEncoder는 라벨 인코딩을 수행하는 sklearn 클래스입니다. Label은 존재하지 않는 클래스입니다.",
     "code": "from sklearn.preprocessing import LabelEncoder",
     "difficulty": "medium"
@@ -1018,10 +1018,10 @@
     "category": "범주형 인코딩",
     "question": "OneHotEncoder에서 새로운 범주를 처리하는 파라미터는?",
     "options": [
-      "unknown='ignore'",
-      "handle_unknown='ignore'"
+      "handle_unknown='ignore'",
+      "unknown='ignore'"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "handle_unknown='ignore'는 새로운 범주를 무시하도록 설정하는 파라미터입니다. unknown='ignore'는 존재하지 않는 파라미터입니다.",
     "code": "ohe = OneHotEncoder(handle_unknown='ignore')",
     "difficulty": "hard"
@@ -1031,10 +1031,10 @@
     "category": "범주형 인코딩",
     "question": "get_dummies에서 첫 번째 더미 변수를 제거하는 파라미터는?",
     "options": [
-      "remove_first=True",
-      "drop_first=True"
+      "drop_first=True",
+      "remove_first=True"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "drop_first=True는 첫 번째 더미 변수를 제거하여 다중공선성을 방지합니다. remove_first=True는 존재하지 않는 파라미터입니다.",
     "code": "df_encoded = pd.get_dummies(df, columns=['category'], drop_first=True)",
     "difficulty": "medium"
@@ -1057,10 +1057,10 @@
     "category": "데이터셋 분리",
     "question": "train_test_split에서 테스트셋 비율을 설정하는 파라미터는?",
     "options": [
-      "test_ratio",
-      "test_size"
+      "test_size",
+      "test_ratio"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "test_size는 테스트셋 비율을 설정하는 파라미터입니다. test_ratio는 존재하지 않는 파라미터입니다.",
     "code": "X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)",
     "difficulty": "easy"
@@ -1096,10 +1096,10 @@
     "category": "데이터셋 분리",
     "question": "시계열 데이터를 분리할 때 사용하는 방법은?",
     "options": [
-      "랜덤 분할",
-      "순차 분할"
+      "순차 분할",
+      "랜덤 분할"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "시계열 데이터는 시간 순서를 유지해야 하므로 순차 분할을 사용해야 합니다. 랜덤 분할은 미래 정보 누수를 야기할 수 있습니다.",
     "code": "split_idx = int(len(df) * 0.8)\ntrain, test = df[:split_idx], df[split_idx:]",
     "difficulty": "medium"
@@ -1109,10 +1109,10 @@
     "category": "스케일링",
     "question": "표준화를 수행하는 sklearn 클래스는?",
     "options": [
-      "StandardScale",
-      "StandardScaler"
+      "StandardScaler",
+      "StandardScale"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "StandardScaler는 표준화를 수행하는 sklearn 클래스입니다. StandardScale은 존재하지 않는 클래스입니다.",
     "code": "from sklearn.preprocessing import StandardScaler",
     "difficulty": "easy"
@@ -1148,10 +1148,10 @@
     "category": "스케일링",
     "question": "스케일러를 훈련시키는 메서드는?",
     "options": [
-      "train()",
-      "fit()"
+      "fit()",
+      "train()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "fit()은 스케일러를 훈련시키는 메서드입니다. train()은 존재하지 않는 메서드입니다.",
     "code": "scaler.fit(X_train)",
     "difficulty": "easy"
@@ -1161,10 +1161,10 @@
     "category": "스케일링",
     "question": "스케일러를 적용하는 메서드는?",
     "options": [
-      "apply()",
-      "transform()"
+      "transform()",
+      "apply()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "transform()은 스케일러를 적용하는 메서드입니다. apply()는 존재하지 않는 메서드입니다.",
     "code": "X_scaled = scaler.transform(X_test)",
     "difficulty": "easy"
@@ -1174,10 +1174,10 @@
     "category": "기본 모델링",
     "question": "의사결정나무 분류기를 생성하는 sklearn 클래스는?",
     "options": [
-      "DecisionTree",
-      "DecisionTreeClassifier"
+      "DecisionTreeClassifier",
+      "DecisionTree"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "DecisionTreeClassifier는 의사결정나무 분류기를 생성하는 sklearn 클래스입니다. DecisionTree는 존재하지 않는 클래스입니다.",
     "code": "from sklearn.tree import DecisionTreeClassifier",
     "difficulty": "easy"
@@ -1213,10 +1213,10 @@
     "category": "기본 모델링",
     "question": "모델을 학습시키는 메서드는?",
     "options": [
-      "train()",
-      "fit()"
+      "fit()",
+      "train()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "fit()은 모델을 학습시키는 메서드입니다. train()은 존재하지 않는 메서드입니다.",
     "code": "model.fit(X_train, y_train)",
     "difficulty": "easy"
@@ -1226,10 +1226,10 @@
     "category": "기본 모델링",
     "question": "모델로 예측을 수행하는 메서드는?",
     "options": [
-      "forecast()",
-      "predict()"
+      "predict()",
+      "forecast()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "predict()은 모델로 예측을 수행하는 메서드입니다. forecast()는 존재하지 않는 메서드입니다.",
     "code": "y_pred = model.predict(X_test)",
     "difficulty": "easy"
@@ -1239,10 +1239,10 @@
     "category": "앙상블 모델링",
     "question": "랜덤 포레스트 분류기를 생성하는 sklearn 클래스는?",
     "options": [
-      "RandomForest",
-      "RandomForestClassifier"
+      "RandomForestClassifier",
+      "RandomForest"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "RandomForestClassifier는 랜덤 포레스트 분류기를 생성하는 sklearn 클래스입니다. RandomForest는 존재하지 않는 클래스입니다.",
     "code": "from sklearn.ensemble import RandomForestClassifier",
     "difficulty": "easy"
@@ -1304,10 +1304,10 @@
     "category": "모델 성능 평가",
     "question": "분류 모델의 정확도를 계산하는 sklearn 함수는?",
     "options": [
-      "accuracy",
-      "accuracy_score"
+      "accuracy_score",
+      "accuracy"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "accuracy_score는 분류 모델의 정확도를 계산하는 sklearn 함수입니다. accuracy는 존재하지 않는 함수입니다.",
     "code": "from sklearn.metrics import accuracy_score",
     "difficulty": "easy"
@@ -1356,10 +1356,10 @@
     "category": "모델 성능 평가",
     "question": "혼동행렬을 계산하는 sklearn 함수는?",
     "options": [
-      "confusion",
-      "confusion_matrix"
+      "confusion_matrix",
+      "confusion"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "confusion_matrix는 혼동행렬을 계산하는 sklearn 함수입니다. confusion은 존재하지 않는 함수입니다.",
     "code": "from sklearn.metrics import confusion_matrix",
     "difficulty": "medium"
@@ -1382,10 +1382,10 @@
     "category": "모델 성능 평가",
     "question": "회귀 모델의 평균 절대 오차를 계산하는 sklearn 함수는?",
     "options": [
-      "mae",
-      "mean_absolute_error"
+      "mean_absolute_error",
+      "mae"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "mean_absolute_error는 회귀 모델의 평균 절대 오차를 계산하는 sklearn 함수입니다. mae는 존재하지 않는 함수입니다.",
     "code": "from sklearn.metrics import mean_absolute_error",
     "difficulty": "medium"
@@ -1395,10 +1395,10 @@
     "category": "모델 성능 평가",
     "question": "회귀 모델의 평균 제곱 오차를 계산하는 sklearn 함수는?",
     "options": [
-      "mse",
-      "mean_squared_error"
+      "mean_squared_error",
+      "mse"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "mean_squared_error는 회귀 모델의 평균 제곱 오차를 계산하는 sklearn 함수입니다. mse는 존재하지 않는 함수입니다.",
     "code": "from sklearn.metrics import mean_squared_error",
     "difficulty": "medium"
@@ -1408,10 +1408,10 @@
     "category": "모델 성능 평가",
     "question": "RMSE를 계산하는 방법은?",
     "options": [
-      "rmse()",
-      "np.sqrt(mean_squared_error())"
+      "np.sqrt(mean_squared_error())",
+      "rmse()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "RMSE는 MSE의 제곱근이므로 np.sqrt(mean_squared_error())로 계산합니다. rmse()는 존재하지 않는 함수입니다.",
     "code": "rmse = np.sqrt(mean_squared_error(y_test, y_pred))",
     "difficulty": "hard"
@@ -1447,10 +1447,10 @@
     "category": "딥러닝 모델 구성",
     "question": "완전연결 레이어를 추가하는 Keras 클래스는?",
     "options": [
-      "keras.layers.FullyConnected",
-      "keras.layers.Dense"
+      "keras.layers.Dense",
+      "keras.layers.FullyConnected"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "keras.layers.Dense는 완전연결 레이어를 추가하는 Keras 클래스입니다. FullyConnected는 존재하지 않는 클래스입니다.",
     "code": "keras.layers.Dense(64, activation='relu')",
     "difficulty": "easy"
@@ -1473,10 +1473,10 @@
     "category": "딥러닝 모델 구성",
     "question": "입력 레이어를 정의하는 Keras 클래스는?",
     "options": [
-      "keras.layers.InputLayer",
-      "keras.layers.Input"
+      "keras.layers.Input",
+      "keras.layers.InputLayer"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "keras.layers.Input은 입력 레이어를 정의하는 Keras 클래스입니다. InputLayer는 존재하지 않는 클래스입니다.",
     "code": "keras.layers.Input(shape=(input_dim,))",
     "difficulty": "medium"
@@ -1512,10 +1512,10 @@
     "category": "딥러닝 모델 구성",
     "question": "회귀에서 사용하는 손실 함수는?",
     "options": [
-      "mean_squared_error",
-      "mse"
+      "mse",
+      "mean_squared_error"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "mse는 회귀에서 사용하는 손실 함수입니다. mean_squared_error는 sklearn 함수명입니다.",
     "code": "model.compile(loss='mse')",
     "difficulty": "medium"
@@ -1551,10 +1551,10 @@
     "category": "딥러닝 모델 구성",
     "question": "EarlyStopping 콜백을 생성하는 Keras 클래스는?",
     "options": [
-      "keras.EarlyStopping",
-      "keras.callbacks.EarlyStopping"
+      "keras.callbacks.EarlyStopping",
+      "keras.EarlyStopping"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "keras.callbacks.EarlyStopping은 EarlyStopping 콜백을 생성하는 Keras 클래스입니다. keras.EarlyStopping은 존재하지 않는 클래스입니다.",
     "code": "from keras.callbacks import EarlyStopping",
     "difficulty": "medium"
@@ -1616,10 +1616,10 @@
     "category": "딥러닝 평가 및 시각화",
     "question": "모델로 예측을 수행하는 메서드는?",
     "options": [
-      "model.forecast()",
-      "model.predict()"
+      "model.predict()",
+      "model.forecast()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "model.predict()는 모델로 예측을 수행하는 메서드입니다. model.forecast()는 존재하지 않는 메서드입니다.",
     "code": "y_pred = model.predict(X_test)",
     "difficulty": "easy"
@@ -1629,10 +1629,10 @@
     "category": "딥러닝 평가 및 시각화",
     "question": "모델의 요약을 출력하는 메서드는?",
     "options": [
-      "model.info()",
-      "model.summary()"
+      "model.summary()",
+      "model.info()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "model.summary()는 모델의 요약을 출력하는 메서드입니다. model.info()는 존재하지 않는 메서드입니다.",
     "code": "model.summary()",
     "difficulty": "easy"
@@ -1642,10 +1642,10 @@
     "category": "딥러닝 평가 및 시각화",
     "question": "모델의 파라미터 개수를 확인하는 메서드는?",
     "options": [
-      "model.num_params()",
-      "model.count_params()"
+      "model.count_params()",
+      "model.num_params()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "model.count_params()는 모델의 파라미터 개수를 확인하는 메서드입니다. model.num_params()는 존재하지 않는 메서드입니다.",
     "code": "print(model.count_params())",
     "difficulty": "medium"
@@ -1694,10 +1694,10 @@
     "category": "라이브러리 임포트",
     "question": "경고 메시지를 억제하는 방법은?",
     "options": [
-      "warnings.suppress()",
-      "warnings.filterwarnings('ignore')"
+      "warnings.filterwarnings('ignore')",
+      "warnings.suppress()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "warnings.filterwarnings('ignore')는 경고 메시지를 억제하는 방법입니다. warnings.suppress()는 존재하지 않는 함수입니다.",
     "code": "import warnings\nwarnings.filterwarnings('ignore')",
     "difficulty": "easy"
@@ -1707,10 +1707,10 @@
     "category": "라이브러리 임포트",
     "question": "TensorFlow GPU 사용을 확인하는 방법은?",
     "options": [
-      "tf.gpu.list_devices()",
-      "tf.config.list_physical_devices('GPU')"
+      "tf.config.list_physical_devices('GPU')",
+      "tf.gpu.list_devices()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "tf.config.list_physical_devices('GPU')는 TensorFlow GPU 사용을 확인하는 방법입니다. tf.gpu.list_devices()는 존재하지 않는 함수입니다.",
     "code": "print(tf.config.list_physical_devices('GPU'))",
     "difficulty": "hard"
@@ -1746,10 +1746,10 @@
     "category": "라이브러리 임포트",
     "question": "matplotlib에서 한글 폰트를 설정하는 방법은?",
     "options": [
-      "plt.font('NanumGothicCoding')",
-      "plt.rc('font', family='NanumGothicCoding')"
+      "plt.rc('font', family='NanumGothicCoding')",
+      "plt.font('NanumGothicCoding')"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "plt.rc('font', family='NanumGothicCoding')는 matplotlib에서 한글 폰트를 설정하는 방법입니다. plt.font()는 존재하지 않는 함수입니다.",
     "code": "plt.rc('font', family='NanumGothicCoding')",
     "difficulty": "medium"
@@ -1759,10 +1759,10 @@
     "category": "데이터 불러오기",
     "question": "CSV 파일에서 구분자가 세미콜론일 때 사용하는 파라미터는?",
     "options": [
-      "delimiter=';'",
-      "sep=';'"
+      "sep=';'",
+      "delimiter=';'"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "sep=';'는 CSV 파일에서 구분자가 세미콜론일 때 사용하는 파라미터입니다. delimiter=';'도 가능하지만 sep이 더 일반적입니다.",
     "code": "df = pd.read_csv('file.csv', sep=';')",
     "difficulty": "medium"
@@ -1772,10 +1772,10 @@
     "category": "데이터 불러오기",
     "question": "CSV 파일에서 첫 번째 행을 인덱스로 사용할 때 사용하는 파라미터는?",
     "options": [
-      "index=0",
-      "index_col=0"
+      "index_col=0",
+      "index=0"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "index_col=0은 CSV 파일에서 첫 번째 행을 인덱스로 사용할 때 사용하는 파라미터입니다. index=0은 존재하지 않는 파라미터입니다.",
     "code": "df = pd.read_csv('file.csv', index_col=0)",
     "difficulty": "medium"
@@ -1811,10 +1811,10 @@
     "category": "데이터 불러오기",
     "question": "CSV 파일에서 결측치를 특정 값으로 표시할 때 사용하는 파라미터는?",
     "options": [
-      "missing_values",
-      "na_values"
+      "na_values",
+      "missing_values"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "na_values는 CSV 파일에서 결측치를 특정 값으로 표시할 때 사용하는 파라미터입니다. missing_values는 존재하지 않는 파라미터입니다.",
     "code": "df = pd.read_csv('file.csv', na_values=['', 'NULL'])",
     "difficulty": "hard"
@@ -1824,10 +1824,10 @@
     "category": "데이터 시각화",
     "question": "seaborn에서 스타일을 설정하는 함수는?",
     "options": [
-      "sns.style()",
-      "sns.set_style()"
+      "sns.set_style()",
+      "sns.style()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "sns.set_style()은 seaborn에서 스타일을 설정하는 함수입니다. sns.style()은 존재하지 않는 함수입니다.",
     "code": "sns.set_style('whitegrid')",
     "difficulty": "easy"
@@ -1850,10 +1850,10 @@
     "category": "데이터 시각화",
     "question": "matplotlib에서 서브플롯을 생성하는 함수는?",
     "options": [
-      "plt.subplot()",
-      "plt.subplots()"
+      "plt.subplots()",
+      "plt.subplot()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "plt.subplots()는 matplotlib에서 서브플롯을 생성하는 함수입니다. plt.subplot()은 단일 서브플롯을 생성합니다.",
     "code": "fig, axes = plt.subplots(2, 2)",
     "difficulty": "medium"
@@ -1876,10 +1876,10 @@
     "category": "데이터 시각화",
     "question": "seaborn에서 범주별 수치를 비교하는 함수는?",
     "options": [
-      "sns.bar()",
-      "sns.barplot()"
+      "sns.barplot()",
+      "sns.bar()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "sns.barplot()은 seaborn에서 범주별 수치를 비교하는 함수입니다. sns.bar()은 존재하지 않는 함수입니다.",
     "code": "sns.barplot(data=df, x='category', y='value')",
     "difficulty": "easy"
@@ -1889,10 +1889,10 @@
     "category": "그룹화 및 집계",
     "question": "그룹화 후 여러 컬럼에 다른 집계 함수를 적용하는 방법은?",
     "options": [
-      "df.groupby().apply({'col1': 'mean', 'col2': 'sum'})",
-      "df.groupby().agg({'col1': 'mean', 'col2': 'sum'})"
+      "df.groupby().agg({'col1': 'mean', 'col2': 'sum'})",
+      "df.groupby().apply({'col1': 'mean', 'col2': 'sum'})"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "agg() 메서드를 사용하여 여러 컬럼에 다른 집계 함수를 적용할 수 있습니다. apply()는 다른 용도입니다.",
     "code": "result = df.groupby('category').agg({'value1': 'mean', 'value2': 'sum'})",
     "difficulty": "medium"
@@ -1928,10 +1928,10 @@
     "category": "그룹화 및 집계",
     "question": "그룹화 후 누적합을 계산하는 방법은?",
     "options": [
-      "df.groupby().sum().cumsum()",
-      "df.groupby().cumsum()"
+      "df.groupby().cumsum()",
+      "df.groupby().sum().cumsum()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "df.groupby().cumsum()은 그룹화 후 누적합을 계산하는 방법입니다. sum().cumsum()은 전체 누적합입니다.",
     "code": "df['cumsum'] = df.groupby('category')['value'].cumsum()",
     "difficulty": "hard"
@@ -1941,10 +1941,10 @@
     "category": "그룹화 및 집계",
     "question": "그룹화 후 비율을 계산하는 방법은?",
     "options": [
-      "df.groupby().apply(lambda x: x / x.sum())",
-      "df.groupby().transform(lambda x: x / x.sum())"
+      "df.groupby().transform(lambda x: x / x.sum())",
+      "df.groupby().apply(lambda x: x / x.sum())"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "transform(lambda x: x / x.sum())은 그룹화 후 비율을 계산하는 방법입니다. apply()는 다른 용도입니다.",
     "code": "df['ratio'] = df.groupby('category')['value'].transform(lambda x: x / x.sum())",
     "difficulty": "hard"
@@ -1980,10 +1980,10 @@
     "category": "데이터 전처리",
     "question": "문자열에서 정규표현식을 사용하여 추출하는 메서드는?",
     "options": [
-      "str.regex()",
-      "str.extract()"
+      "str.extract()",
+      "str.regex()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "str.extract()는 문자열에서 정규표현식을 사용하여 추출하는 메서드입니다. str.regex()는 존재하지 않는 메서드입니다.",
     "code": "df['extracted'] = df['text'].str.extract(r'(\\d+)')",
     "difficulty": "hard"
@@ -2006,10 +2006,10 @@
     "category": "데이터 전처리",
     "question": "문자열의 앞뒤 공백을 제거하는 메서드는?",
     "options": [
-      "str.trim()",
-      "str.strip()"
+      "str.strip()",
+      "str.trim()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "str.strip()은 문자열의 앞뒤 공백을 제거하는 메서드입니다. str.trim()은 존재하지 않는 메서드입니다.",
     "code": "df['clean_text'] = df['text'].str.strip()",
     "difficulty": "easy"
@@ -2019,10 +2019,10 @@
     "category": "결측치 처리",
     "question": "결측치를 특정 값으로 채우는 메서드는?",
     "options": [
-      "replace_na(value)",
-      "fillna(value)"
+      "fillna(value)",
+      "replace_na(value)"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "fillna(value)는 결측치를 특정 값으로 채우는 메서드입니다. replace_na()는 존재하지 않는 메서드입니다.",
     "code": "df['value'] = df['value'].fillna(0)",
     "difficulty": "easy"
@@ -2032,10 +2032,10 @@
     "category": "결측치 처리",
     "question": "결측치를 앞의 값으로 채우는 메서드는?",
     "options": [
-      "fillna(method='forward')",
-      "fillna(method='ffill')"
+      "fillna(method='ffill')",
+      "fillna(method='forward')"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "fillna(method='ffill')은 결측치를 앞의 값으로 채우는 메서드입니다. method='forward'는 존재하지 않는 옵션입니다.",
     "code": "df['value'] = df['value'].fillna(method='ffill')",
     "difficulty": "medium"
@@ -2058,10 +2058,10 @@
     "category": "결측치 처리",
     "question": "결측치를 보간하는 메서드는?",
     "options": [
-      "interpol()",
-      "interpolate()"
+      "interpolate()",
+      "interpol()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "interpolate()는 결측치를 보간하는 메서드입니다. interpol()는 존재하지 않는 메서드입니다.",
     "code": "df['value'] = df['value'].interpolate()",
     "difficulty": "hard"
@@ -2071,10 +2071,10 @@
     "category": "결측치 처리",
     "question": "결측치가 있는 행을 삭제하는 메서드는?",
     "options": [
-      "remove_na()",
-      "dropna()"
+      "dropna()",
+      "remove_na()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "dropna()는 결측치가 있는 행을 삭제하는 메서드입니다. remove_na()는 존재하지 않는 메서드입니다.",
     "code": "df_clean = df.dropna()",
     "difficulty": "easy"
@@ -2084,10 +2084,10 @@
     "category": "범주형 인코딩",
     "question": "범주형 데이터를 원-핫 인코딩하는 pandas 함수는?",
     "options": [
-      "pd.onehot()",
-      "pd.get_dummies()"
+      "pd.get_dummies()",
+      "pd.onehot()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "pd.get_dummies()는 범주형 데이터를 원-핫 인코딩하는 pandas 함수입니다. pd.onehot()는 존재하지 않는 함수입니다.",
     "code": "df_encoded = pd.get_dummies(df, columns=['category'])",
     "difficulty": "easy"
@@ -2110,10 +2110,10 @@
     "category": "범주형 인코딩",
     "question": "라벨 인코딩을 수행하는 sklearn 클래스는?",
     "options": [
-      "Label",
-      "LabelEncoder"
+      "LabelEncoder",
+      "Label"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "LabelEncoder는 라벨 인코딩을 수행하는 sklearn 클래스입니다. Label은 존재하지 않는 클래스입니다.",
     "code": "from sklearn.preprocessing import LabelEncoder",
     "difficulty": "medium"
@@ -2149,10 +2149,10 @@
     "category": "데이터셋 분리",
     "question": "데이터를 훈련/테스트로 분리하는 sklearn 함수는?",
     "options": [
-      "split_data",
-      "train_test_split"
+      "train_test_split",
+      "split_data"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "train_test_split은 데이터를 훈련/테스트로 분리하는 sklearn 함수입니다. split_data는 존재하지 않는 함수입니다.",
     "code": "from sklearn.model_selection import train_test_split",
     "difficulty": "easy"
@@ -2162,10 +2162,10 @@
     "category": "데이터셋 분리",
     "question": "train_test_split에서 테스트셋 비율을 설정하는 파라미터는?",
     "options": [
-      "test_ratio",
-      "test_size"
+      "test_size",
+      "test_ratio"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "test_size는 train_test_split에서 테스트셋 비율을 설정하는 파라미터입니다. test_ratio는 존재하지 않는 파라미터입니다.",
     "code": "X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)",
     "difficulty": "easy"
@@ -2188,10 +2188,10 @@
     "category": "데이터셋 분리",
     "question": "클래스 비율을 유지하는 파라미터는?",
     "options": [
-      "balance",
-      "stratify"
+      "stratify",
+      "balance"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "stratify는 train_test_split에서 클래스 비율을 유지하는 파라미터입니다. balance는 존재하지 않는 파라미터입니다.",
     "code": "train_test_split(X, y, stratify=y)",
     "difficulty": "medium"
@@ -2201,10 +2201,10 @@
     "category": "데이터셋 분리",
     "question": "시계열 데이터를 분리할 때 사용하는 방법은?",
     "options": [
-      "랜덤 분할",
-      "순차 분할"
+      "순차 분할",
+      "랜덤 분할"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "시계열 데이터는 시간 순서를 유지해야 하므로 순차 분할을 사용해야 합니다. 랜덤 분할은 미래 정보 누수를 야기할 수 있습니다.",
     "code": "split_idx = int(len(df) * 0.8)\ntrain, test = df[:split_idx], df[split_idx:]",
     "difficulty": "medium"
@@ -2240,10 +2240,10 @@
     "category": "스케일링",
     "question": "이상치에 강한 스케일링을 수행하는 sklearn 클래스는?",
     "options": [
-      "RobustScale",
-      "RobustScaler"
+      "RobustScaler",
+      "RobustScale"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "RobustScaler는 이상치에 강한 스케일링을 수행하는 sklearn 클래스입니다. RobustScale은 존재하지 않는 클래스입니다.",
     "code": "from sklearn.preprocessing import RobustScaler",
     "difficulty": "medium"
@@ -2279,10 +2279,10 @@
     "category": "기본 모델링",
     "question": "의사결정나무 분류기를 생성하는 sklearn 클래스는?",
     "options": [
-      "DecisionTree",
-      "DecisionTreeClassifier"
+      "DecisionTreeClassifier",
+      "DecisionTree"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "DecisionTreeClassifier는 의사결정나무 분류기를 생성하는 sklearn 클래스입니다. DecisionTree는 존재하지 않는 클래스입니다.",
     "code": "from sklearn.tree import DecisionTreeClassifier",
     "difficulty": "easy"
@@ -2292,10 +2292,10 @@
     "category": "기본 모델링",
     "question": "로지스틱 회귀를 수행하는 sklearn 클래스는?",
     "options": [
-      "LogisticReg",
-      "LogisticRegression"
+      "LogisticRegression",
+      "LogisticReg"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "LogisticRegression은 로지스틱 회귀를 수행하는 sklearn 클래스입니다. LogisticReg는 존재하지 않는 클래스입니다.",
     "code": "from sklearn.linear_model import LogisticRegression",
     "difficulty": "easy"
@@ -2305,10 +2305,10 @@
     "category": "기본 모델링",
     "question": "K-최근접 이웃 분류기를 생성하는 sklearn 클래스는?",
     "options": [
-      "KNeighbors",
-      "KNeighborsClassifier"
+      "KNeighborsClassifier",
+      "KNeighbors"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "KNeighborsClassifier는 K-최근접 이웃 분류기를 생성하는 sklearn 클래스입니다. KNeighbors는 존재하지 않는 클래스입니다.",
     "code": "from sklearn.neighbors import KNeighborsClassifier",
     "difficulty": "easy"
@@ -2318,10 +2318,10 @@
     "category": "기본 모델링",
     "question": "모델을 학습시키는 메서드는?",
     "options": [
-      "train()",
-      "fit()"
+      "fit()",
+      "train()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "fit()은 모델을 학습시키는 메서드입니다. train()은 존재하지 않는 메서드입니다.",
     "code": "model.fit(X_train, y_train)",
     "difficulty": "easy"
@@ -2331,10 +2331,10 @@
     "category": "기본 모델링",
     "question": "모델로 예측을 수행하는 메서드는?",
     "options": [
-      "forecast()",
-      "predict()"
+      "predict()",
+      "forecast()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "predict()은 모델로 예측을 수행하는 메서드입니다. forecast()는 존재하지 않는 메서드입니다.",
     "code": "y_pred = model.predict(X_test)",
     "difficulty": "easy"
@@ -2383,10 +2383,10 @@
     "category": "앙상블 모델링",
     "question": "XGBoost에서 학습률을 설정하는 파라미터는?",
     "options": [
-      "lr",
-      "learning_rate"
+      "learning_rate",
+      "lr"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "learning_rate는 XGBoost에서 학습률을 설정하는 파라미터입니다. lr은 존재하지 않는 파라미터입니다.",
     "code": "xgb = XGBClassifier(learning_rate=0.1)",
     "difficulty": "medium"
@@ -2396,10 +2396,10 @@
     "category": "앙상블 모델링",
     "question": "특성 중요도를 확인하는 속성은?",
     "options": [
-      "feature_importance",
-      "feature_importances_"
+      "feature_importances_",
+      "feature_importance"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "feature_importances_는 특성 중요도를 확인하는 속성입니다. feature_importance는 존재하지 않는 속성입니다.",
     "code": "importance = rf.feature_importances_",
     "difficulty": "medium"
@@ -2409,10 +2409,10 @@
     "category": "모델 성능 평가",
     "question": "분류 모델의 정확도를 계산하는 sklearn 함수는?",
     "options": [
-      "accuracy",
-      "accuracy_score"
+      "accuracy_score",
+      "accuracy"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "accuracy_score는 분류 모델의 정확도를 계산하는 sklearn 함수입니다. accuracy는 존재하지 않는 함수입니다.",
     "code": "from sklearn.metrics import accuracy_score",
     "difficulty": "easy"
@@ -2435,10 +2435,10 @@
     "category": "모델 성능 평가",
     "question": "재현율을 계산하는 sklearn 함수는?",
     "options": [
-      "recall",
-      "recall_score"
+      "recall_score",
+      "recall"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "recall_score는 재현율을 계산하는 sklearn 함수입니다. recall은 존재하지 않는 함수입니다.",
     "code": "from sklearn.metrics import recall_score",
     "difficulty": "medium"
@@ -2448,10 +2448,10 @@
     "category": "모델 성능 평가",
     "question": "F1 점수를 계산하는 sklearn 함수는?",
     "options": [
-      "f1",
-      "f1_score"
+      "f1_score",
+      "f1"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "f1_score는 F1 점수를 계산하는 sklearn 함수입니다. f1은 존재하지 않는 함수입니다.",
     "code": "from sklearn.metrics import f1_score",
     "difficulty": "medium"
@@ -2461,10 +2461,10 @@
     "category": "모델 성능 평가",
     "question": "혼동행렬을 계산하는 sklearn 함수는?",
     "options": [
-      "confusion",
-      "confusion_matrix"
+      "confusion_matrix",
+      "confusion"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "confusion_matrix는 혼동행렬을 계산하는 sklearn 함수입니다. confusion은 존재하지 않는 함수입니다.",
     "code": "from sklearn.metrics import confusion_matrix",
     "difficulty": "medium"
@@ -2474,10 +2474,10 @@
     "category": "딥러닝 모델 구성",
     "question": "Keras Sequential 모델을 생성하는 방법은?",
     "options": [
-      "keras.Model()",
-      "keras.Sequential()"
+      "keras.Sequential()",
+      "keras.Model()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "keras.Sequential()은 순차적 레이어를 쌓는 모델을 생성합니다. keras.Model()은 함수형 API용입니다.",
     "code": "model = keras.Sequential()",
     "difficulty": "easy"
@@ -2487,10 +2487,10 @@
     "category": "딥러닝 모델 구성",
     "question": "완전연결 레이어를 추가하는 Keras 클래스는?",
     "options": [
-      "keras.layers.FullyConnected",
-      "keras.layers.Dense"
+      "keras.layers.Dense",
+      "keras.layers.FullyConnected"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "keras.layers.Dense는 완전연결 레이어를 추가하는 Keras 클래스입니다. FullyConnected는 존재하지 않는 클래스입니다.",
     "code": "keras.layers.Dense(64, activation='relu')",
     "difficulty": "easy"
@@ -2500,10 +2500,10 @@
     "category": "딥러닝 모델 구성",
     "question": "드롭아웃 레이어를 추가하는 Keras 클래스는?",
     "options": [
-      "keras.layers.Drop",
-      "keras.layers.Dropout"
+      "keras.layers.Dropout",
+      "keras.layers.Drop"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "keras.layers.Dropout은 드롭아웃 레이어를 추가하는 Keras 클래스입니다. Drop은 존재하지 않는 클래스입니다.",
     "code": "keras.layers.Dropout(0.2)",
     "difficulty": "easy"
@@ -2526,10 +2526,10 @@
     "category": "딥러닝 모델 구성",
     "question": "모델을 컴파일하는 메서드는?",
     "options": [
-      "build()",
-      "compile()"
+      "compile()",
+      "build()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "compile()은 모델을 컴파일하는 메서드입니다. build()는 존재하지 않는 메서드입니다.",
     "code": "model.compile(optimizer='adam', loss='binary_crossentropy')",
     "difficulty": "easy"
@@ -2565,10 +2565,10 @@
     "category": "딥러닝 평가 및 시각화",
     "question": "모델을 저장하는 메서드는?",
     "options": [
-      "model.store()",
-      "model.save()"
+      "model.save()",
+      "model.store()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "model.save()는 모델을 저장하는 메서드입니다. model.store()는 존재하지 않는 메서드입니다.",
     "code": "model.save('model.keras')",
     "difficulty": "easy"

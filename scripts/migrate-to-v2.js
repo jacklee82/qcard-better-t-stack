@@ -179,3 +179,4 @@ if (require.main === module) {
 }
 
 module.exports = { migrateToV2, rollback };
+

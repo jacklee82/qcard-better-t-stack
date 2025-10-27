@@ -323,3 +323,4 @@ async function cleanupExpiredSessions(): Promise<number> {
   
   return result.rowCount || 0;
 }
+
